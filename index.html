@@ -377,10 +377,48 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   0%{transform:translate3d(-2%,1%,0) scaleX(.98);opacity:.42}
   100%{transform:translate3d(2%,-1%,0) scaleX(1.04);opacity:.68}
 }
+.hero-copy{
+  position:absolute;
+  inset:0;
+  z-index:7;
+  pointer-events:none;
+}
+.hero-copy .shell{
+  height:100%;
+  padding-top:clamp(38px,6.2vw,88px);
+}
+.hero-title{
+  margin:0;
+  max-width:none;
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(46px,5.4vw,76px);
+  line-height:.99;
+  letter-spacing:-.025em;
+  color:var(--ink);
+  text-shadow:0 1px 0 rgba(255,255,255,.34);
+}
+.hero-title span{
+  display:block;
+  white-space:nowrap;
+}
+.hero-title i{
+  color:var(--forest);
+  font-style:italic;
+}
+
 @media (hover:hover) and (pointer:fine) and (min-width:901px){
   .hero-art:hover .hero-media{transition-duration:140ms}
 }
 @media (max-width:900px){
+  .hero-copy .shell{
+    padding-top:26px;
+  }
+  .hero-title{
+    font-size:clamp(34px,9.4vw,42px);
+    line-height:1.01;
+    letter-spacing:-.028em;
+  }
   .hero-art{
     height:clamp(460px,125vw,560px);
     border-bottom:1px solid rgba(45,40,30,.10);
@@ -447,6 +485,14 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 <body>
 
 <div class="hero-art" id="top">
+  <div class="hero-copy">
+    <div class="shell">
+      <h1 class="hero-title">
+        <span>Не учить язык.</span>
+        <span>А начать <i>говорить.</i></span>
+      </h1>
+    </div>
+  </div>
   <picture class="hero-media" aria-hidden="true">
     <source media="(max-width: 900px)" srcset="/hero-desktop.png">
     <img src="/hero-desktop.png" alt="" decoding="async" fetchpriority="high">
