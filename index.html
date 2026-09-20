@@ -165,128 +165,13 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   .facts{flex-direction:column;gap:14px}
 }
 
-/* New conversion-first hero built around the approved artwork */
-.hero-art{
-  position:relative;z-index:2;width:100%;
-  height:clamp(720px,100svh,940px);
-  overflow:hidden;background:#F6F0E6;isolation:isolate;
-  border-bottom:1px solid var(--line)
-}
-.hero-media{position:absolute;inset:0;z-index:0;display:block}
-.hero-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center}
-.hero-header{
-  position:absolute;inset:0 0 auto;z-index:4;padding:22px 0;
-  background:transparent
-}
-.hero-header-row{
-  width:min(calc(100% - 44px),var(--max));margin:0 auto;
-  display:flex;align-items:center;gap:28px
-}
-.hero-brand{
-  font-family:var(--serif);font-size:15px;letter-spacing:.16em;
-  text-transform:uppercase;color:#29231f;white-space:nowrap
-}
-.hero-brand span{color:#6d625a}
-.hero-nav{display:flex;align-items:center;gap:24px;margin-left:18px}
-.hero-nav a{
-  font-size:13px;color:#665d56;transition:color .2s ease
-}
-.hero-nav a:hover{color:#211b17}
-.hero-header-spacer{flex:1}
-.hero-top-cta{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:42px;padding:0 18px;border:1px solid rgba(52,43,36,.24);
-  border-radius:999px;background:rgba(250,246,239,.52);
-  backdrop-filter:blur(8px);font-size:13px;color:#2d2722
-}
-.hero-mobile-code{display:none;font-size:11px;letter-spacing:.16em;color:#6d625a}
-.hero-copy{
-  position:absolute;z-index:3;
-  left:max(24px,calc((100% - var(--max))/2));
-  top:50%;transform:translateY(-46%);
-  width:min(660px,47vw)
-}
-.hero-eyebrow{
-  display:flex;align-items:center;gap:14px;margin:0 0 18px;
-  font-size:10.5px;letter-spacing:.21em;text-transform:uppercase;
-  color:#6d625a
-}
-.hero-eyebrow::after{
-  content:"";width:66px;height:1px;background:rgba(58,46,36,.28)
-}
-.hero-copy h1{
-  margin:0;max-width:650px;
-  font-family:var(--serif);font-weight:400;
-  font-size:clamp(54px,5vw,76px);line-height:.94;
-  letter-spacing:-.035em;color:#231d19
-}
-.hero-copy h1 em{display:block;font-style:italic;color:#314b38}
-.hero-lede{
-  margin-top:22px;max-width:39ch;
-  font-size:clamp(15px,1.15vw,17px);line-height:1.55;
-  font-weight:300;color:#615850
-}
-.hero-actions{margin-top:26px}
-.hero-primary{
-  display:inline-flex;align-items:center;justify-content:center;gap:14px;
-  min-height:54px;padding:0 26px;border-radius:999px;
-  background:#2F4A36;color:#F8F2E9;font-size:15px;font-weight:500;
-  box-shadow:0 10px 28px rgba(47,74,54,.14);
-  transition:transform .2s ease,box-shadow .2s ease
-}
-.hero-primary:hover{transform:translateY(-1px);box-shadow:0 13px 32px rgba(47,74,54,.19)}
-.hero-primary svg{width:17px;height:17px}
-.hero-note{margin-top:10px;font-size:12.5px;color:#746a62}
-
+/* Approved hero artwork only — overlays intentionally removed until the next design pass */
+.hero-art{position:relative;z-index:2;width:100%;overflow:hidden;background:#F6F0E6;border-bottom:1px solid var(--line)}
+.hero-media,.hero-media img{display:block;width:100%;margin:0}
+.hero-media img{height:auto}
 @media (max-width:900px){
-  .hero-art{
-    height:min(100svh,177.68vw);
-    min-height:620px;max-height:780px;
-    border-bottom:1px solid rgba(45,40,30,.10)
-  }
-  .hero-media img{object-fit:cover;object-position:center top}
-  .hero-header{padding:18px 0}
-  .hero-header-row{width:calc(100% - 36px)}
-  .hero-brand{font-size:12px;letter-spacing:.14em}
-  .hero-nav,.hero-top-cta{display:none}
-  .hero-mobile-code{display:block}
-  .hero-copy{
-    left:20px;right:20px;top:92px;transform:none;
-    width:auto;max-width:none
-  }
-  .hero-eyebrow{
-    margin-bottom:10px;font-size:9px;letter-spacing:.18em;
-    gap:9px;color:#796e65
-  }
-  .hero-eyebrow::after{width:34px}
-  .hero-copy h1{
-    max-width:355px;
-    font-size:clamp(38px,10.8vw,46px);
-    line-height:.95;letter-spacing:-.032em
-  }
-  .hero-copy h1 em{display:block}
-  .hero-lede{
-    margin-top:13px;max-width:29ch;
-    font-size:13.5px;line-height:1.45;color:#655c55
-  }
-  .hero-actions{
-    position:absolute;z-index:4;
-    left:20px;right:20px;bottom:22px;margin:0
-  }
-  .hero-primary{
-    width:100%;min-height:52px;padding:0 18px;
-    font-size:14.5px;background:#2B3F31
-  }
-  .hero-note{
-    margin-top:8px;text-align:center;
-    font-size:11.5px;color:#6f655d
-  }
-}
-@media (max-width:360px){
-  .hero-art{min-height:590px}
-  .hero-copy{top:86px}
-  .hero-copy h1{font-size:37px}
-  .hero-lede{font-size:13px}
+  .hero-art{border-bottom:1px solid rgba(45,40,30,.10)}
+  .hero-media img{width:100%;height:auto}
 }
 
 
@@ -299,35 +184,6 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     <source media="(max-width: 900px)" srcset="/hero-mobile.webp">
     <img src="/hero-desktop.webp" alt="" width="1536" height="864" decoding="async" fetchpriority="high">
   </picture>
-
-  <header class="hero-header">
-    <div class="hero-header-row">
-      <a class="hero-brand" href="#top">Zaynab <span>/ Languages</span></a>
-      <nav class="hero-nav" aria-label="Основная навигация">
-        <a href="#method">Как учимся</a>
-        <a href="#languages">Языки</a>
-        <a href="#trial">Пробный урок</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <div class="hero-header-spacer"></div>
-      <span class="hero-mobile-code" aria-hidden="true">EN · FR</span>
-      <a class="hero-top-cta" href="#trial">Записаться на пробный урок</a>
-    </div>
-  </header>
-
-  <div class="hero-copy">
-    <p class="hero-eyebrow">Английский и французский · онлайн 1-на-1</p>
-    <h1>Не учить язык.<em>А начать говорить.</em></h1>
-    <p class="hero-lede">Индивидуальные занятия под вашу задачу: работа, переезд, поездки или общение.</p>
-  </div>
-
-  <div class="hero-actions">
-    <a class="hero-primary" href="#trial">
-      Записаться на пробный урок
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/></svg>
-    </a>
-    <p class="hero-note">30 минут · бесплатно · без обязательств</p>
-  </div>
 </div>
 
 <section id="method">
