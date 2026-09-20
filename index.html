@@ -385,26 +385,39 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 }
 .hero-copy .shell{
   height:100%;
-  padding-top:clamp(38px,6.2vw,88px);
+  padding-top:clamp(46px,6vw,90px);
 }
 .hero-title{
   margin:0;
-  max-width:none;
+  width:max-content;
+  max-width:min(760px,58vw);
   font-family:var(--serif);
   font-weight:400;
-  font-size:clamp(46px,5.4vw,76px);
-  line-height:.99;
-  letter-spacing:-.025em;
+  line-height:.92;
+  letter-spacing:-.035em;
   color:var(--ink);
-  text-shadow:0 1px 0 rgba(255,255,255,.34);
+  text-shadow:0 1px 0 rgba(255,255,255,.28);
 }
-.hero-title span{
+.hero-title-line{
   display:block;
   white-space:nowrap;
+}
+.hero-title-line-1{
+  font-size:clamp(58px,5.8vw,88px);
+}
+.hero-title-line-2{
+  margin-top:.08em;
+  font-size:clamp(58px,5.8vw,88px);
+}
+.hero-title-line-3{
+  margin-top:-.06em;
+  margin-left:1.05em;
+  font-size:clamp(72px,7vw,106px);
 }
 .hero-title i{
   color:var(--forest);
   font-style:italic;
+  font-weight:400;
 }
 
 @media (hover:hover) and (pointer:fine) and (min-width:901px){
@@ -412,12 +425,25 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 }
 @media (max-width:900px){
   .hero-copy .shell{
-    padding-top:26px;
+    padding-top:24px;
   }
   .hero-title{
-    font-size:clamp(34px,9.4vw,42px);
-    line-height:1.01;
-    letter-spacing:-.028em;
+    width:100%;
+    max-width:none;
+    line-height:.94;
+    letter-spacing:-.04em;
+  }
+  .hero-title-line-1,
+  .hero-title-line-2{
+    font-size:clamp(46px,12.8vw,56px);
+  }
+  .hero-title-line-2{
+    margin-top:.10em;
+  }
+  .hero-title-line-3{
+    margin-top:-.04em;
+    margin-left:.72em;
+    font-size:clamp(58px,16vw,70px);
   }
   .hero-art{
     height:clamp(460px,125vw,560px);
@@ -488,8 +514,9 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   <div class="hero-copy">
     <div class="shell">
       <h1 class="hero-title">
-        <span>Не учить язык.</span>
-        <span>А начать <i>говорить.</i></span>
+        <span class="hero-title-line hero-title-line-1">Не учить язык.</span>
+        <span class="hero-title-line hero-title-line-2">А начать</span>
+        <span class="hero-title-line hero-title-line-3"><i>говорить.</i></span>
       </h1>
     </div>
   </div>
