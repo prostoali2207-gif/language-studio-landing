@@ -165,7 +165,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   .facts{flex-direction:column;gap:14px}
 }
 
-/* Hero visual effects: subtle depth, light and floor shimmer. No HTML copy yet. */
+/* Hero visual effects — deliberately visible, still restrained. */
 .hero-art{
   --hero-x:0px;
   --hero-y:0px;
@@ -183,8 +183,8 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   display:block;
   width:100%;
   margin:0;
-  transform:translate3d(var(--hero-x),var(--hero-y),0);
-  transition:transform 700ms cubic-bezier(.22,.8,.24,1);
+  transform:translate3d(var(--hero-x),var(--hero-y),0) scale(1.015);
+  transition:transform 420ms cubic-bezier(.2,.75,.22,1);
   will-change:transform;
 }
 .hero-media img{
@@ -193,56 +193,99 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   height:auto;
   margin:0;
   transform-origin:72% 52%;
-  animation:hero-breathe 15s ease-in-out infinite alternate;
-  will-change:transform;
+  animation:hero-breathe 10s ease-in-out infinite alternate;
+  will-change:transform,filter;
 }
-.hero-art::before{
-  content:"";
+.hero-fx{
   position:absolute;
-  z-index:2;
-  inset:-12%;
+  inset:0;
   pointer-events:none;
+}
+.hero-fx-glow{
+  z-index:2;
+  inset:-18%;
   background:
-    radial-gradient(42% 48% at 18% 12%,rgba(255,255,255,.28) 0%,rgba(255,255,255,.11) 42%,rgba(255,255,255,0) 76%),
-    radial-gradient(34% 38% at 66% 39%,rgba(255,244,225,.16) 0%,rgba(255,244,225,0) 74%);
-  filter:blur(10px);
-  opacity:.72;
-  transform:translate3d(-1.5%,0,0) scale(1);
-  animation:hero-light 13s ease-in-out infinite alternate;
-  will-change:transform,opacity;
+    radial-gradient(34% 42% at 66% 43%,rgba(255,255,255,.55) 0%,rgba(255,247,230,.23) 38%,rgba(255,247,230,0) 74%),
+    radial-gradient(28% 34% at 28% 22%,rgba(255,255,255,.30) 0%,rgba(255,255,255,0) 76%);
+  filter:blur(18px);
+  opacity:.58;
+  animation:hero-glow 8s ease-in-out infinite alternate;
+  mix-blend-mode:screen;
+}
+.hero-fx-sweep{
+  z-index:3;
+  inset:-30% -45%;
+  background:linear-gradient(
+    112deg,
+    transparent 34%,
+    rgba(255,255,255,0) 42%,
+    rgba(255,255,255,.16) 47%,
+    rgba(255,249,237,.44) 50%,
+    rgba(255,255,255,.13) 54%,
+    transparent 61%
+  );
+  transform:translate3d(-36%,0,0);
+  filter:blur(12px);
+  opacity:0;
+  animation:hero-sweep 8.5s cubic-bezier(.4,0,.25,1) infinite;
+  mix-blend-mode:screen;
+}
+.hero-fx-dust{
+  z-index:3;
+  inset:-5%;
+  background:
+    radial-gradient(circle at 22% 31%,rgba(255,255,255,.72) 0 1px,transparent 2px),
+    radial-gradient(circle at 34% 58%,rgba(255,247,229,.60) 0 1.5px,transparent 2.5px),
+    radial-gradient(circle at 47% 23%,rgba(255,255,255,.70) 0 1px,transparent 2px),
+    radial-gradient(circle at 58% 62%,rgba(255,244,220,.58) 0 1px,transparent 2px),
+    radial-gradient(circle at 70% 29%,rgba(255,255,255,.68) 0 1.3px,transparent 2.3px),
+    radial-gradient(circle at 79% 52%,rgba(255,248,232,.55) 0 1px,transparent 2px),
+    radial-gradient(circle at 88% 20%,rgba(255,255,255,.60) 0 1px,transparent 2px);
+  opacity:.42;
+  filter:blur(.2px);
+  animation:hero-dust 12s ease-in-out infinite alternate;
 }
 .hero-art::after{
   content:"";
   position:absolute;
-  z-index:3;
-  left:-15%;
-  right:-15%;
+  z-index:2;
+  left:-12%;
+  right:-12%;
   bottom:-8%;
-  height:34%;
+  height:31%;
   pointer-events:none;
   background:
-    radial-gradient(ellipse at 72% 42%,rgba(255,255,255,.20) 0%,rgba(255,255,255,.07) 28%,rgba(255,255,255,0) 62%),
-    linear-gradient(100deg,rgba(255,255,255,0) 10%,rgba(255,255,255,.10) 42%,rgba(220,194,163,.08) 58%,rgba(255,255,255,0) 86%);
-  filter:blur(18px);
-  opacity:.55;
-  transform:translate3d(-1.5%,0,0);
-  animation:hero-floor 11s ease-in-out infinite alternate;
-  will-change:transform,opacity;
+    radial-gradient(ellipse at 70% 38%,rgba(255,255,255,.30) 0%,rgba(255,255,255,.08) 30%,rgba(255,255,255,0) 64%),
+    linear-gradient(98deg,rgba(255,255,255,0) 8%,rgba(255,255,255,.16) 39%,rgba(212,181,147,.11) 57%,rgba(255,255,255,0) 86%);
+  filter:blur(15px);
+  opacity:.60;
+  animation:hero-floor 7.5s ease-in-out infinite alternate;
 }
 @keyframes hero-breathe{
-  from{transform:scale(1.008)}
-  to{transform:scale(1.022)}
+  0%{transform:scale(1.01);filter:brightness(1) contrast(1)}
+  100%{transform:scale(1.035);filter:brightness(1.035) contrast(1.01)}
 }
-@keyframes hero-light{
-  0%{transform:translate3d(-1.8%,-.6%,0) scale(1);opacity:.58}
-  100%{transform:translate3d(1.6%,1%,0) scale(1.035);opacity:.80}
+@keyframes hero-glow{
+  0%{transform:translate3d(-2%,-1%,0) scale(.98);opacity:.40}
+  100%{transform:translate3d(2%,1.5%,0) scale(1.06);opacity:.76}
+}
+@keyframes hero-sweep{
+  0%,14%{transform:translate3d(-38%,0,0);opacity:0}
+  22%{opacity:.52}
+  48%{opacity:.36}
+  62%{transform:translate3d(36%,0,0);opacity:0}
+  100%{transform:translate3d(36%,0,0);opacity:0}
+}
+@keyframes hero-dust{
+  0%{transform:translate3d(-5px,6px,0);opacity:.28}
+  100%{transform:translate3d(8px,-9px,0);opacity:.52}
 }
 @keyframes hero-floor{
-  0%{transform:translate3d(-2.5%,0,0);opacity:.40}
-  100%{transform:translate3d(2.5%,-1.5%,0);opacity:.64}
+  0%{transform:translate3d(-2%,1%,0) scaleX(.98);opacity:.42}
+  100%{transform:translate3d(2%,-1%,0) scaleX(1.04);opacity:.68}
 }
 @media (hover:hover) and (pointer:fine) and (min-width:901px){
-  .hero-art:hover .hero-media{transition-duration:180ms}
+  .hero-art:hover .hero-media{transition-duration:140ms}
 }
 @media (max-width:900px){
   .hero-art{
@@ -254,6 +297,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     position:absolute;
     inset:0;
     overflow:hidden;
+    transform:scale(1.025);
   }
   .hero-media img{
     position:absolute;
@@ -264,16 +308,18 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     bottom:0;
     -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 9%,#000 18%,#000 100%);
     mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 9%,#000 18%,#000 100%);
-    animation-duration:18s;
+    animation-duration:13s;
     transform-origin:76% 62%;
   }
-  .hero-art::before{opacity:.48;filter:blur(14px)}
-  .hero-art::after{height:28%;opacity:.34;filter:blur(16px)}
+  .hero-fx-glow{opacity:.48;filter:blur(20px)}
+  .hero-fx-sweep{animation-duration:10s;opacity:0}
+  .hero-fx-dust{opacity:.28}
+  .hero-art::after{height:27%;opacity:.42;filter:blur(16px)}
 }
 @media (prefers-reduced-motion:reduce){
   .hero-media,
   .hero-media img,
-  .hero-art::before,
+  .hero-fx,
   .hero-art::after{
     animation:none!important;
     transition:none!important;
@@ -291,6 +337,9 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     <source media="(max-width: 900px)" srcset="/hero-desktop.png">
     <img src="/hero-desktop.png" alt="" decoding="async" fetchpriority="high">
   </picture>
+  <div class="hero-fx hero-fx-glow" aria-hidden="true"></div>
+  <div class="hero-fx hero-fx-sweep" aria-hidden="true"></div>
+  <div class="hero-fx hero-fx-dust" aria-hidden="true"></div>
 </div>
 
 <section id="method">
@@ -463,8 +512,8 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
       var r=hero.getBoundingClientRect();
       var nx=((e.clientX-r.left)/r.width)-0.5;
       var ny=((e.clientY-r.top)/r.height)-0.5;
-      targetX=nx*-10;
-      targetY=ny*-6;
+      targetX=nx*-20;
+      targetY=ny*-11;
       if(!frame) frame=requestAnimationFrame(render);
     },{passive:true});
     hero.addEventListener('pointerleave',function(){
