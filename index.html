@@ -1,309 +1,333 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-    <title>Курсы испанского, немецкого, английского онлайн по всей России | Hispania</title>
-    <meta name="description" content="Языковая студия Hispania — онлайн-курсы испанского, немецкого и английского языка по всей России. Мини-группы до 6 человек и индивидуальные занятия, опытные преподаватели, обучение из любого города. Первое занятие бесплатно!"/>
-    <meta name="keywords" content="курсы испанского онлайн, курсы немецкого онлайн, курсы английского онлайн, индивидуальные занятия испанским, индивидуальные уроки немецкого, репетитор один на один, изучение испанского по всей России, языковая школа онлайн, репетитор испанского, выучить испанский язык, курсы иностранных языков онлайн, языковая студия Hispania"/>
-    <meta name="geo.region" content="RU"/>
-    <meta name="geo.placename" content="Россия"/>
-    <meta name="author" content="Hispania"/>
-    <meta name="robots" content="index, follow"/>
-    <meta name="yandex" content="index, follow"/>
-    <meta name="zen-verification" content="qsxcXmPYuOcQW80fbOvaHNXt0EezMHbL5d3a8TMtYkJRnHCpY9RNOtuBXJQs8OdD" />
-    <meta name="google-site-verification" content="cVRgqYR3dnu5XRrRqczC189uyMOr9y7aEFXXsnhtWuA" />
-    <link rel="canonical" href="https://hispania35.online/"/>
-    <script>
-    (function () {
-      var SITE = "https://hispania35.online";
-      var C = {
-        "moskva":["в Москве","Москвы"],"sankt-peterburg":["в Санкт-Петербурге","Санкт-Петербурга"],
-        "novosibirsk":["в Новосибирске","Новосибирска"],"ekaterinburg":["в Екатеринбурге","Екатеринбурга"],
-        "kazan":["в Казани","Казани"],"nizhniy-novgorod":["в Нижнем Новгороде","Нижнего Новгорода"],
-        "chelyabinsk":["в Челябинске","Челябинска"],"krasnoyarsk":["в Красноярске","Красноярска"],
-        "samara":["в Самаре","Самары"],"ufa":["в Уфе","Уфы"],"rostov-na-donu":["в Ростове-на-Дону","Ростова-на-Дону"],
-        "omsk":["в Омске","Омска"],"krasnodar":["в Краснодаре","Краснодара"],"voronezh":["в Воронеже","Воронежа"],
-        "perm":["в Перми","Перми"],"volgograd":["в Волгограде","Волгограда"],"saratov":["в Саратове","Саратова"],
-        "tyumen":["в Тюмени","Тюмени"],"tolyatti":["в Тольятти","Тольятти"],"izhevsk":["в Ижевске","Ижевска"],
-        "barnaul":["в Барнауле","Барнаула"],"ulyanovsk":["в Ульяновске","Ульяновска"],"irkutsk":["в Иркутске","Иркутска"],
-        "habarovsk":["в Хабаровске","Хабаровска"],"yaroslavl":["в Ярославле","Ярославля"],"vladivostok":["во Владивостоке","Владивостока"],
-        "mahachkala":["в Махачкале","Махачкалы"],"tomsk":["в Томске","Томска"],"orenburg":["в Оренбурге","Оренбурга"],
-        "kemerovo":["в Кемерово","Кемерово"],"novokuznetsk":["в Новокузнецке","Новокузнецка"],"ryazan":["в Рязани","Рязани"],
-        "naberezhnye-chelny":["в Набережных Челнах","Набережных Челнов"],"astrahan":["в Астрахани","Астрахани"],
-        "penza":["в Пензе","Пензы"],"lipetsk":["в Липецке","Липецка"],"kirov":["в Кирове","Кирова"],
-        "cheboksary":["в Чебоксарах","Чебоксар"],"tula":["в Туле","Тулы"],"kaliningrad":["в Калининграде","Калининграда"],
-        "balashiha":["в Балашихе","Балашихи"],"kursk":["в Курске","Курска"],"stavropol":["в Ставрополе","Ставрополя"],
-        "ulan-ude":["в Улан-Удэ","Улан-Удэ"],"tver":["в Твери","Твери"],"magnitogorsk":["в Магнитогорске","Магнитогорска"],
-        "sochi":["в Сочи","Сочи"],"ivanovo":["в Иваново","Иваново"],"bryansk":["в Брянске","Брянска"],
-        "belgorod":["в Белгороде","Белгорода"],"surgut":["в Сургуте","Сургута"],
-        "minsk":["в Минске","Минска"],"gomel":["в Гомеле","Гомеля"],"brest":["в Бресте","Бреста"],
-        "vitebsk":["в Витебске","Витебска"],"grodno":["в Гродно","Гродно"],"mogilev":["в Могилёве","Могилёва"]
-      };
-      var slug = location.pathname.replace(/^\/+|\/+$/g, "");
-      var title, desc;
-      if (slug === "belarus") {
-        title = "Курсы испанского, немецкого, английского в Беларуси онлайн | Hispania";
-        desc = "Онлайн-курсы иностранных языков в Беларуси: испанский, немецкий, английский для жителей Минска, Гомеля, Бреста и других городов. Мини-группы и индивидуальные занятия, первое занятие бесплатно.";
-      } else if (C[slug]) {
-        title = "Курсы испанского, немецкого, английского " + C[slug][0] + " онлайн | Hispania";
-        desc = "Курсы иностранных языков " + C[slug][0] + " онлайн: испанский, немецкий, английский. Мини-группы до 6 человек и индивидуальные занятия, опытные преподаватели, первое занятие бесплатно.";
-      }
-      if (title) {
-        var set = function (sel, attr, val) {
-          var el = document.head.querySelector(sel);
-          if (el) el.setAttribute(attr, val);
-        };
-        document.title = title;
-        set('meta[name="description"]', "content", desc);
-        set('meta[property="og:title"]', "content", title);
-        set('meta[property="og:description"]', "content", desc);
-      }
-    })();
-    </script>
-    <link rel="icon" type="image/png" href="https://cdn.poehali.dev/projects/c066c37a-f840-40ae-bf25-35290452380d/bucket/e2a102db-1630-4af2-9bfc-bad201f7b790.png">
-    <link rel="apple-touch-icon" href="https://cdn.poehali.dev/projects/c066c37a-f840-40ae-bf25-35290452380d/bucket/e2a102db-1630-4af2-9bfc-bad201f7b790.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.poehali.dev" crossorigin>
-    <link rel="preload" as="image" href="https://cdn.poehali.dev/projects/c066c37a-f840-40ae-bf25-35290452380d/files/803028f6-6301-487d-bdfa-c9513189e123.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hispania35.online/">
-    <meta property="og:title" content="Курсы испанского, немецкого, английского онлайн по всей России | Hispania">
-    <meta property="og:description" content="Языковая студия Hispania — мини-группы до 6 человек и индивидуальные занятия, опытные преподаватели, онлайн-обучение из любого города России. Первое занятие бесплатно!">
-    <meta property="og:image:width" content="1424">
-    <meta property="og:image:height" content="748">
-    <meta property="og:image:alt" content="Hispania35 — курсы испанского онлайн">
-    <meta property="og:image" content="https://cdn.poehali.dev/projects/c066c37a-f840-40ae-bf25-35290452380d/bucket/87815cd6-0768-458b-98ac-20ec6d3dc30a.png">
-    <meta name="twitter:image" content="https://cdn.poehali.dev/projects/c066c37a-f840-40ae-bf25-35290452380d/bucket/87815cd6-0768-458b-98ac-20ec6d3dc30a.png">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#f6f0e6" />
+<meta name="description" content="Индивидуальные онлайн-занятия 1-на-1 по английскому и французскому под конкретную задачу: работа, переезд, поездки и общение. Запись на пробный урок." />
+<title>ZAYNAB Languages — английский и французский онлайн</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600&family=Source+Serif+4:opsz,ital,wght@8..60,0,400;8..60,0,500;8..60,1,400;8..60,1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F0E6; --paper:#FFFDF8;
+  --ink:#1D2320; --muted:#5A5A50;
+  --line:rgba(45,40,30,.14); --line-2:rgba(45,40,30,.26);
+  --forest:#2F4A36; --clay:#A9673F;
+  --max:1180px;
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --prism-x:64%; --prism-y:52%; --prism-h:50vh;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--forest);outline-offset:3px;border-radius:4px}
+.shell{width:min(calc(100% - 32px),var(--max));margin:0 auto}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0}
+p{margin:0}
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LanguageSchool",
-      "name": "Hispania — Языковая студия",
-      "url": "https://hispania35.online",
-      "logo": "https://cdn.poehali.dev/projects/c066c37a-f840-40ae-bf25-35290452380d/bucket/e2a102db-1630-4af2-9bfc-bad201f7b790.png",
-      "image": "https://cdn.poehali.dev/projects/c066c37a-f840-40ae-bf25-35290452380d/bucket/87815cd6-0768-458b-98ac-20ec6d3dc30a.png",
-      "description": "Языковая студия Hispania — курсы испанского, немецкого и английского языка в Вологде и онлайн. Мини-группы до 6 человек и индивидуальные занятия, опытные преподаватели, бесплатное пробное занятие.",
-      "telephone": "+7-921-123-82-21",
-      "email": "hispania35@yandex.ru",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "ул. Козленская, 43б, офис 10",
-        "addressLocality": "Вологда",
-        "addressRegion": "Вологодская область",
-        "addressCountry": "RU"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "59.2239",
-        "longitude": "39.8845"
-      },
-      "areaServed": {
-        "@type": "Country",
-        "name": "Россия"
-      },
-      "availableLanguage": ["Spanish", "German", "English", "Russian"],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-          "opens": "09:00",
-          "closes": "21:00"
-        }
-      ],
-      "sameAs": [
-        "https://vk.com/club119672828"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Языковые курсы",
-        "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Курсы испанского языка", "description": "Обучение испанскому языку онлайн и в Вологде, мини-группы и индивидуальные занятия", "hasCourseInstance": [{"@type": "CourseInstance", "name": "Групповые занятия", "courseMode": "online", "courseWorkload": "PT2H"}, {"@type": "CourseInstance", "name": "Индивидуальные занятия", "courseMode": "online", "courseWorkload": "PT1H"}]}},
-          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Курсы немецкого языка", "description": "Обучение немецкому языку онлайн и в Вологде, мини-группы и индивидуальные занятия", "hasCourseInstance": [{"@type": "CourseInstance", "name": "Групповые занятия", "courseMode": "online", "courseWorkload": "PT2H"}, {"@type": "CourseInstance", "name": "Индивидуальные занятия", "courseMode": "online", "courseWorkload": "PT1H"}]}},
-          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Курсы английского языка", "description": "Обучение английскому языку онлайн и в Вологде, мини-группы и индивидуальные занятия", "hasCourseInstance": [{"@type": "CourseInstance", "name": "Групповые занятия", "courseMode": "online", "courseWorkload": "PT2H"}, {"@type": "CourseInstance", "name": "Индивидуальные занятия", "courseMode": "online", "courseWorkload": "PT1H"}]}},
-          {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Индивидуальные занятия", "description": "Персональные занятия один на один с преподавателем — испанский, немецкий, английский, онлайн и в Вологде", "hasCourseInstance": [{"@type": "CourseInstance", "name": "Индивидуальные занятия один на один", "courseMode": "online", "courseWorkload": "PT1H"}]}}
-        ]
-      }
-    }
-    </script>
+.optics{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.optics::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(115% 85% at 74% 48%,#FFFCF4 0%,#F7F1E5 44%,#EFE5D4 74%,#E8DCC8 100%)}
+.optics::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(64% 58% at 80% 50%,rgba(122,98,64,.15) 0%,rgba(122,98,64,0) 66%)}
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Hispania — Языковая студия",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "500",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Анна К."},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5"},
-          "reviewBody": "За полгода занятий я перешла с нуля до уверенного разговорного уровня. Методика действительно работает — начала говорить уже на первом уроке!"
-        },
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Михаил С."},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5"},
-          "reviewBody": "Готовился к поступлению в немецкий университет. Преподаватель помог не только с языком, но и с подготовкой к Goethe-Zertifikat. Сдал с первого раза!"
-        },
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Екатерина Л."},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5"},
-          "reviewBody": "Хотела выучить испанский для путешествий. Мини-группа — это отличный формат, всегда есть живое общение и внимание преподавателя."
-        },
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Дмитрий В."},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5"},
-          "reviewBody": "Занимаюсь онлайн уже год. Очень удобно — никуда не нужно ехать, а качество занятий ничем не уступает очному формату. Рекомендую!"
-        }
-      ]
-    }
-    </script>
+.beam-in{position:absolute;left:30%;top:calc(var(--prism-y) - 2vh);
+  width:calc(var(--prism-x) - 30%);height:16vh;
+  transform:translateY(-50%) rotate(3.5deg);transform-origin:left center;
+  clip-path:polygon(0 47.5%,0 52.5%,100% 8%,100% 92%);
+  background:linear-gradient(90deg,rgba(255,253,246,0) 0%,rgba(255,251,238,.42) 20%,rgba(255,250,234,.85) 62%,rgba(255,255,255,.98) 100%);
+  filter:blur(6px)}
+.flash{position:absolute;transform:translate(-50%,-50%);border-radius:50%}
+.flash.a{left:calc(var(--prism-x) - 1%);top:calc(var(--prism-y) + 1.5vh);width:16vh;height:16vh;
+  background:radial-gradient(circle,rgba(255,255,255,.88) 0%,rgba(255,246,222,.32) 38%,rgba(255,246,222,0) 70%)}
+.flash.b{left:calc(var(--prism-x) + 3%);top:calc(var(--prism-y) - 4vh);width:22vh;height:22vh;
+  background:radial-gradient(circle,rgba(255,255,255,.82) 0%,rgba(255,247,226,.28) 40%,rgba(255,247,226,0) 70%)}
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Сколько человек в группе?",
-          "acceptedAnswer": {"@type": "Answer", "text": "В наших группах максимум 6 человек — это позволяет уделять внимание каждому ученику и создать живую разговорную атмосферу."}
-        },
-        {
-          "@type": "Question",
-          "name": "Можно ли заниматься онлайн?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Да, все курсы доступны онлайн. Занятия проходят в видеоформате, качество не уступает очным урокам."}
-        },
-        {
-          "@type": "Question",
-          "name": "Есть ли бесплатное пробное занятие?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Да, первое занятие бесплатно. Вы познакомитесь с преподавателем, определите свой уровень и решите, подходит ли вам наш формат."}
-        },
-        {
-          "@type": "Question",
-          "name": "Какие языки можно изучать?",
-          "acceptedAnswer": {"@type": "Answer", "text": "В студии Hispania вы можете изучать испанский, немецкий и английский языки — в мини-группах или индивидуально, онлайн или в Вологде."}
-        },
-        {
-          "@type": "Question",
-          "name": "Можно ли заниматься индивидуально?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Да, мы проводим индивидуальные занятия один на один с преподавателем — по персональной программе и в удобном графике. Это подходит тем, кто хочет максимально быстрый результат или готовится к конкретной цели."}
-        },
-        {
-          "@type": "Question",
-          "name": "Сколько стоят занятия?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Стоимость зависит от формата: групповые занятия от 1500 руб./месяц, индивидуальные — по запросу. Первое занятие всегда бесплатно."}
-        }
-      ]
-    }
-    </script>
+.prism{position:absolute;left:var(--prism-x);top:var(--prism-y);transform:translate(-50%,-50%);
+  height:var(--prism-h);filter:drop-shadow(0 26px 42px rgba(92,72,46,.22))}
+.prism svg{height:100%;width:auto;display:block}
 
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
+.fan{position:absolute;left:calc(var(--prism-x) + 4%);top:calc(var(--prism-y) - 4vh);width:72vw;height:0}
+.ray{position:absolute;left:0;top:0;width:100%;height:9vh;margin-top:-4.5vh;
+  transform-origin:0 50%;transform:rotate(var(--a));
+  clip-path:polygon(0 46%,0 54%,100% 0,100% 100%);
+  background:linear-gradient(90deg,var(--c) 0%,transparent 72%);
+  filter:blur(15px);opacity:.92}
+.ray.core{height:7vh;margin-top:-3.5vh;filter:blur(9px);
+  background:linear-gradient(90deg,rgba(255,255,255,.95) 0%,rgba(255,252,242,.45) 52%,rgba(255,252,242,0) 100%)}
 
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
-    <script src="https://cdn.poehali.dev/intertnal/js/pp-min-2.js"></script>
-    <script>
-      if (!('scrollBehavior' in document.documentElement.style)) {
-        var _origSIV = Element.prototype.scrollIntoView;
-        Element.prototype.scrollIntoView = function(opts) {
-          if (opts && opts.behavior === 'smooth') {
-            var target = this, start = window.pageYOffset;
-            var end = target.getBoundingClientRect().top + start;
-            var dist = end - start, dur = 600, t0 = null;
-            function step(ts) {
-              if (!t0) t0 = ts;
-              var p = Math.min((ts - t0) / dur, 1);
-              var e = p < 0.5 ? 2*p*p : -1+(4-2*p)*p;
-              window.scrollTo(0, start + dist * e);
-              if (p < 1) requestAnimationFrame(step);
-            }
-            requestAnimationFrame(step);
-          } else { _origSIV.call(this, opts); }
-        };
-      }
-    </script>
-    <script src="https://cdn.poehali.dev/intertnal/js/route-min.js"></script>
-    <script src="https://cdn.poehali.dev/intertnal/js/telemetry-min.js"></script>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
+.tr{position:absolute;font-family:var(--serif);color:#4A4234;line-height:1.28;
+  text-shadow:0 1px 0 rgba(255,255,255,.72);white-space:nowrap}
+.tr em{display:block;font-style:italic;color:#3C4A3B}
+.tr.en{left:calc(var(--prism-x) + 9%);top:calc(var(--prism-y) - 21vh);transform:rotate(-9deg);font-size:clamp(15px,1.5vw,22px)}
+.tr.fr{left:calc(var(--prism-x) + 11%);top:calc(var(--prism-y) - 4vh);transform:rotate(-4deg);font-size:clamp(14px,1.35vw,20px)}
 
-    <meta name="pp-name" value="language-studio-landing">
-      <script src="https://cdn.poehali.dev/intertnal/js/inspector-min.js"></script>
-  </head>
+header{position:relative;z-index:5;padding:20px 0}
+.hrow{display:flex;align-items:center;gap:26px}
+.brand{font-family:var(--serif);font-size:16px;letter-spacing:.14em;text-transform:uppercase}
+.brand span{color:var(--muted)}
+nav{display:flex;gap:24px;font-size:14px;color:var(--muted);margin-left:8px}
+nav a:hover{color:var(--ink)}
+.hrow .gap{flex:1}
+.pill{display:inline-flex;align-items:center;padding:10px 20px;border:1px solid var(--line-2);border-radius:999px;font-size:14px;background:rgba(255,255,255,.45)}
 
+.hero{position:relative;padding:clamp(28px,6vh,72px) 0 clamp(32px,6vh,64px)}
+.hero .shell{position:relative;z-index:3}
+.eyebrow{display:flex;align-items:center;gap:16px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:clamp(16px,3vh,26px)}
+.eyebrow::after{content:"";height:1px;width:72px;background:var(--line-2)}
+h1{font-size:clamp(40px,6.2vw,84px);line-height:1.03;letter-spacing:-.015em;max-width:12ch}
+h1 i{font-style:italic;color:var(--forest)}
+.lede{margin-top:clamp(20px,3.2vh,32px);font-size:clamp(15px,1.2vw,18px);line-height:1.62;color:var(--muted);font-weight:300;max-width:36ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(22px,3.6vh,36px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:17px 32px;border-radius:999px;font-size:16px;border:1px solid transparent;cursor:pointer}
+.btn-p{background:var(--forest);color:#F6F0E6}
+.btn-s{border-color:var(--line-2);background:rgba(255,255,255,.4)}
+.note{margin-top:12px;font-size:13px;color:var(--muted)}
+.facts{display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,44px);margin-top:clamp(30px,5vh,58px);padding:0;list-style:none;max-width:720px}
+.facts li{font-size:14px;line-height:1.5;color:var(--muted);padding-left:16px;border-left:1px solid var(--line-2);flex:1 1 180px}
+.facts b{display:block;font-weight:500;color:var(--ink);margin-bottom:2px}
+.cue{display:inline-flex;align-items:center;gap:11px;margin-top:clamp(26px,4.5vh,50px);background:none;border:0;padding:0;cursor:pointer;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.cue i{display:block;width:1px;height:28px;background:var(--line-2)}
+.cue svg{animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+section{position:relative;z-index:2;padding:clamp(56px,10vh,110px) 0;border-top:1px solid var(--line)}
+.kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:18px}
+h2{font-size:clamp(26px,3.4vw,44px);line-height:1.15;max-width:20ch}
+.sub{margin-top:16px;color:var(--muted);max-width:52ch;line-height:1.6;font-weight:300}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:clamp(34px,5vh,58px)}
+.step{padding-top:18px;border-top:1px solid var(--line-2)}
+.step .n{font-family:var(--serif);font-size:13px;color:var(--clay);letter-spacing:.1em}
+.step h3{font-size:19px;margin:8px 0 8px}
+.step p{font-size:14px;line-height:1.55;color:var(--muted);font-weight:300}
+
+.langs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:clamp(30px,5vh,52px)}
+.lang{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px}
+.lang .code{font-family:var(--serif);font-size:13px;letter-spacing:.14em;color:var(--clay)}
+.lang h3{font-size:28px;margin:10px 0 6px}
+.lang p{font-size:14px;color:var(--muted);font-weight:300}
+
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(28px,4vh,44px)}
+.tab{padding:11px 22px;border-radius:999px;border:1px solid var(--line-2);background:transparent;cursor:pointer;font-size:15px}
+.tab[aria-selected="true"]{background:var(--forest);border-color:var(--forest);color:#F6F0E6}
+.panel{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(22px,3vw,34px);max-width:640px}
+.panel h3{font-size:22px;margin-bottom:10px}
+.panel p{color:var(--muted);line-height:1.6;font-weight:300}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips span{font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+
+.trial{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,64px);align-items:start}
+.checks{list-style:none;padding:0;margin:26px 0 0}
+.checks li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--muted);font-weight:300}
+.checks b{font-family:var(--serif);color:var(--clay);font-weight:400;font-size:13px}
+form{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3vw,32px)}
+form h3{font-size:22px;margin-bottom:20px}
+label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
+select{width:100%;padding:13px 14px;border:1px solid var(--line-2);border-radius:10px;background:transparent}
+.goals{display:flex;flex-wrap:wrap;gap:8px}
+.goal{padding:9px 16px;border-radius:999px;border:1px solid var(--line-2);background:transparent;cursor:pointer;font-size:14px}
+.goal[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:#F6F0E6}
+form .btn-p{width:100%;margin-top:24px}
+.hint{margin-top:12px;font-size:12.5px;color:var(--muted);line-height:1.5}
+
+.faq{margin-top:clamp(28px,4vh,46px);max-width:760px}
+.q{border-top:1px solid var(--line)}
+.q:last-child{border-bottom:1px solid var(--line)}
+.q button{width:100%;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:20px 0;background:none;border:0;cursor:pointer;text-align:left;font-size:16px}
+.q .mark{color:var(--clay);flex:none}
+.q .a{display:none;padding:0 0 20px;color:var(--muted);line-height:1.6;font-weight:300;max-width:60ch}
+.q.open .a{display:block}
+
+footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+
+@media (max-width:900px){
+  :root{--prism-x:74%;--prism-y:40%;--prism-h:32vh}
+  nav,.hrow .pill{display:none}
+  h1{max-width:9ch;font-size:clamp(36px,10.5vw,54px)}
+  .lede{max-width:27ch}
+  .beam-in{left:6%;width:calc(var(--prism-x) - 6%);height:11vh}
+  .fan{left:calc(var(--prism-x) + 5%);width:62vw}
+  .tr.en{left:auto;right:3%;top:calc(var(--prism-y) - 16vh);font-size:12.5px}
+  .tr.fr{left:auto;right:5%;top:calc(var(--prism-y) - 4vh);font-size:11.5px}
+  .cta{flex-direction:column;align-items:stretch}
+  .btn{width:100%}
+  .cue{display:none}
+  .steps,.langs,.trial{grid-template-columns:1fr}
+  .facts{flex-direction:column;gap:14px}
+}
+
+/* Approved responsive hero artwork — temporary clean top while the new hero UI is rebuilt */
+.hero-art{position:relative;z-index:2;width:100%;overflow:hidden;background:#F6F0E6}
+.hero-art picture,.hero-art img{display:block;width:100%;margin:0}
+.hero-art img{height:auto;object-fit:cover}
+@media (max-width:767px){.hero-art img{width:100%;height:auto}}
+
+</style>
+</head>
 <body>
-<div id="root"></div>
-<script type="module" src="/src/main.tsx"></script>
 
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function (m, e, t, r, i, k, a) {
-        m[i] = m[i] || function () {
-            (m[i].a = m[i].a || []).push(arguments)
-        };
-        m[i].l = 1 * new Date();
-        for (var j = 0; j < document.scripts.length; j++) {
-            if (document.scripts[j].src === r) {
-                return;
-            }
-        }
-        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-    })
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+<div class="hero-art" id="top">
+  <picture>
+    <source media="(max-width: 767px)" srcset="/hero-mobile.webp">
+    <img src="/hero-desktop.webp" alt="" width="1536" height="864" decoding="async" fetchpriority="high">
+  </picture>
+</div>
 
-    ym(101026698, "init", {
-        trustedDomains: ["poehali.dev"],
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        webvisor: true,
-        trackHash: true
+<section id="method">
+  <div class="shell">
+    <p class="kicker">Как учимся</p>
+    <h2>От вашей задачи — к тому, что нужно уметь делать на языке.</h2>
+    <p class="sub">Важно не сколько тем вы прошли, а что уже можете понять, сказать или сделать на языке.</p>
+    <div class="steps">
+      <div class="step"><p class="n">01</p><h3>Пробный урок</h3><p>Определяем текущий уровень, цель и ситуации, в которых вам нужен язык.</p></div>
+      <div class="step"><p class="n">02</p><h3>Приоритеты</h3><p>Выбираем темы и навыки, которые важнее всего для вашей задачи.</p></div>
+      <div class="step"><p class="n">03</p><h3>Практика</h3><p>Новое сразу используем в ситуациях, ради которых вы учите язык.</p></div>
+      <div class="step"><p class="n">04</p><h3>Коррекция</h3><p>Смотрим, что получается, где остаются трудности, и определяем следующий шаг.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="languages">
+  <div class="shell">
+    <p class="kicker">Языки</p>
+    <h2>Английский или французский — под вашу задачу.</h2>
+    <p class="sub">Выберите язык, с которым хотите работать.</p>
+    <div class="langs">
+      <div class="lang"><p class="code">EN</p><h3>English</h3><p>Работа, переезд, поездки, свободное общение.</p></div>
+      <div class="lang"><p class="code">FR</p><h3>Français</h3><p>С нуля или продолжение — до уверенной речи.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="goals">
+  <div class="shell">
+    <p class="kicker">Под вашу цель</p>
+    <h2>Для чего вам нужен язык?</h2>
+    <p class="sub">Выберите ближайшую задачу — она определяет, на чём будет фокус обучения.</p>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-g="work">Работа</button>
+      <button class="tab" role="tab" aria-selected="false" data-g="move">Переезд</button>
+      <button class="tab" role="tab" aria-selected="false" data-g="trip">Поездки</button>
+      <button class="tab" role="tab" aria-selected="false" data-g="talk">Общение</button>
+    </div>
+    <div class="panel">
+      <h3 id="gt">Говорить и понимать в рабочих ситуациях.</h3>
+      <p id="gp">Фокус на встречах, переписке, звонках, презентациях или общении с клиентами — в зависимости от вашей задачи.</p>
+      <div class="chips"><span>лексика в контексте</span><span>сценарии</span><span>обратная связь</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="trial">
+  <div class="shell trial">
+    <div>
+      <p class="kicker">Пробный урок</p>
+      <h2>Начнём с вашей реальной задачи.</h2>
+      <p class="sub">На пробном уроке определим текущий уровень, разберём цель и поймём, какие навыки сейчас важнее всего.</p>
+      <ul class="checks">
+        <li><b>01</b>что уже получается</li>
+        <li><b>02</b>где язык нужен в первую очередь</li>
+        <li><b>03</b>что поставить в приоритет</li>
+      </ul>
+    </div>
+    <form id="f">
+      <h3>Записаться на пробный урок</h3>
+      <label for="lang">Выберите язык</label>
+      <select id="lang"><option>Английский</option><option>Французский</option></select>
+      <label for="lvl">Ваш уровень</label>
+      <select id="lvl"><option>Не знаю</option><option>С нуля</option><option>Начальный (A1–A2)</option><option>Средний (B1–B2)</option><option>Продвинутый (C1–C2)</option></select>
+      <label>Задача</label>
+      <div class="goals">
+        <button type="button" class="goal" aria-pressed="true">Работа</button>
+        <button type="button" class="goal" aria-pressed="false">Переезд</button>
+        <button type="button" class="goal" aria-pressed="false">Поездки</button>
+        <button type="button" class="goal" aria-pressed="false">Общение</button>
+      </div>
+      <button type="button" class="btn btn-p" id="send">Продолжить в Telegram</button>
+      <p class="hint">Откроется Telegram с готовой заявкой для @inspo25. Останется нажать «Отправить».</p>
+    </form>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="shell">
+    <p class="kicker">FAQ</p>
+    <h2>Перед пробным уроком</h2>
+    <div class="faq">
+      <div class="q"><button>Что будет на пробном уроке?<span class="mark">+</span></button><div class="a">Определим текущий уровень, разберём вашу цель и поймём, на чём стоит сосредоточиться в первую очередь.</div></div>
+      <div class="q"><button>Нужно ли заранее знать свой уровень?<span class="mark">+</span></button><div class="a">Нет. Текущий уровень определим на пробном уроке.</div></div>
+      <div class="q"><button>Как строятся занятия после пробного урока?<span class="mark">+</span></button><div class="a">От вашей цели: определяем приоритеты, практикуем нужные навыки и корректируем следующий шаг по ходу обучения.</div></div>
+      <div class="q"><button>Какие языки можно изучать?<span class="mark">+</span></button><div class="a">Английский и французский.</div></div>
+      <div class="q"><button>Где проходят занятия?<span class="mark">+</span></button><div class="a">Онлайн, 1-на-1 с преподавателем.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell f">
+    <span class="brand">Zaynab <span>/ Languages</span></span>
+    <span>English · Français · индивидуальные занятия онлайн 1-на-1</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var G={
+    work:["Говорить и понимать в рабочих ситуациях.","Фокус на встречах, переписке, звонках, презентациях или общении с клиентами — в зависимости от вашей задачи."],
+    move:["Справляться с бытом и документами на новом месте.","Банк, аренда, поликлиника, школа, госуслуги — разбираем ситуации, которые ждут вас сразу после переезда."],
+    trip:["Чувствовать себя свободно в поездке.","Аэропорт, отель, кафе, дорога и внезапные ситуации — короткие диалоги, которые нужны чаще всего."],
+    talk:["Поддерживать живой разговор.","Учимся говорить о себе, слушать собеседника и продолжать беседу, не подбирая слова по полминуты."]
+  };
+  var tabs=document.querySelectorAll('.tab');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected','false')});
+    t.setAttribute('aria-selected','true');
+    var d=G[t.dataset.g];
+    document.getElementById('gt').textContent=d[0];
+    document.getElementById('gp').textContent=d[1];
+  })});
+
+  var goals=document.querySelectorAll('.goal');
+  goals.forEach(function(g){g.addEventListener('click',function(){
+    goals.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    g.setAttribute('aria-pressed','true');
+  })});
+
+  document.getElementById('send').addEventListener('click',function(){
+    var lang=document.getElementById('lang').value,
+        lvl=document.getElementById('lvl').value,
+        goal=document.querySelector('.goal[aria-pressed="true"]').textContent,
+        msg='Здравствуйте! Хочу записаться на пробный урок.\nЯзык: '+lang+'\nУровень: '+lvl+'\nЗадача: '+goal;
+    window.open('https://t.me/inspo25?text='+encodeURIComponent(msg),'_blank','noopener');
+  });
+
+  document.querySelectorAll('.q button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var q=b.parentElement, open=q.classList.toggle('open');
+      b.querySelector('.mark').textContent=open?'−':'+';
     });
-</script>
-<noscript>
-    <div><img src="https://mc.yandex.ru/watch/101026698" style="position:absolute; left:-9999px;" alt=""/></div>
-</noscript>
-<!-- /Yandex.Metrika counter -->
+  });
 
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107146254', 'ym');
-
-    ym(107146254, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  var cue=document.querySelector('.cue');
+  if(cue){
+    cue.addEventListener('click',function(){
+      document.querySelector(cue.dataset.to).scrollIntoView({behavior:'smooth'});
+    });
+    window.addEventListener('scroll',function(){
+      cue.style.opacity = window.scrollY>80 ? '0' : '1';
+      cue.style.transition='opacity .3s';
+    },{passive:true});
+  }
+})();
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/107146254" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
-<!-- Top.Mail.Ru counter -->
-<script type="text/javascript">
-var _tmr = window._tmr || (window._tmr = []);
-_tmr.push({id: "3753422", type: "pageView", start: (new Date()).getTime()});
-(function (d, w, id) {
-  if (d.getElementById(id)) return;
-  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-  ts.src = "https://top-fwz1.mail.ru/js/code.js";
-  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
-  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-})(document, window, "tmr-code");
-</script>
-<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3753422;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
-<!-- /Top.Mail.Ru counter -->
 </body>
 </html>
