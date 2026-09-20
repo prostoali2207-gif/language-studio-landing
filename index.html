@@ -170,8 +170,26 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 .hero-media,.hero-media img{display:block;width:100%;margin:0}
 .hero-media img{height:auto}
 @media (max-width:900px){
-  .hero-art{border-bottom:1px solid rgba(45,40,30,.10)}
-  .hero-media img{width:100%;height:auto}
+  .hero-art{
+    height:clamp(460px,125vw,560px);
+    border-bottom:1px solid rgba(45,40,30,.10);
+    background:#F3ECE4;
+  }
+  .hero-media{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+  }
+  .hero-media img{
+    position:absolute;
+    width:163.5vw;
+    max-width:none;
+    height:auto;
+    right:-2vw;
+    bottom:0;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 9%,#000 18%,#000 100%);
+    mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 9%,#000 18%,#000 100%);
+  }
 }
 
 
@@ -181,7 +199,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 
 <div class="hero-art" id="top">
   <picture class="hero-media" aria-hidden="true">
-    <source media="(max-width: 900px)" srcset="/hero-mobile.webp">
+    <source media="(max-width: 900px)" srcset="/hero-desktop.png">
     <img src="/hero-desktop.png" alt="" decoding="async" fetchpriority="high">
   </picture>
 </div>
