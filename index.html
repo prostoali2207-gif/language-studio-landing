@@ -165,10 +165,85 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   .facts{flex-direction:column;gap:14px}
 }
 
-/* Approved hero artwork only — overlays intentionally removed until the next design pass */
-.hero-art{position:relative;z-index:2;width:100%;overflow:hidden;background:#F6F0E6;border-bottom:1px solid var(--line)}
-.hero-media,.hero-media img{display:block;width:100%;margin:0}
-.hero-media img{height:auto}
+/* Hero visual effects: subtle depth, light and floor shimmer. No HTML copy yet. */
+.hero-art{
+  --hero-x:0px;
+  --hero-y:0px;
+  position:relative;
+  z-index:2;
+  width:100%;
+  overflow:hidden;
+  background:#F6F0E6;
+  border-bottom:1px solid var(--line);
+  isolation:isolate;
+}
+.hero-media{
+  position:relative;
+  z-index:1;
+  display:block;
+  width:100%;
+  margin:0;
+  transform:translate3d(var(--hero-x),var(--hero-y),0);
+  transition:transform 700ms cubic-bezier(.22,.8,.24,1);
+  will-change:transform;
+}
+.hero-media img{
+  display:block;
+  width:100%;
+  height:auto;
+  margin:0;
+  transform-origin:72% 52%;
+  animation:hero-breathe 15s ease-in-out infinite alternate;
+  will-change:transform;
+}
+.hero-art::before{
+  content:"";
+  position:absolute;
+  z-index:2;
+  inset:-12%;
+  pointer-events:none;
+  background:
+    radial-gradient(42% 48% at 18% 12%,rgba(255,255,255,.28) 0%,rgba(255,255,255,.11) 42%,rgba(255,255,255,0) 76%),
+    radial-gradient(34% 38% at 66% 39%,rgba(255,244,225,.16) 0%,rgba(255,244,225,0) 74%);
+  filter:blur(10px);
+  opacity:.72;
+  transform:translate3d(-1.5%,0,0) scale(1);
+  animation:hero-light 13s ease-in-out infinite alternate;
+  will-change:transform,opacity;
+}
+.hero-art::after{
+  content:"";
+  position:absolute;
+  z-index:3;
+  left:-15%;
+  right:-15%;
+  bottom:-8%;
+  height:34%;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 72% 42%,rgba(255,255,255,.20) 0%,rgba(255,255,255,.07) 28%,rgba(255,255,255,0) 62%),
+    linear-gradient(100deg,rgba(255,255,255,0) 10%,rgba(255,255,255,.10) 42%,rgba(220,194,163,.08) 58%,rgba(255,255,255,0) 86%);
+  filter:blur(18px);
+  opacity:.55;
+  transform:translate3d(-1.5%,0,0);
+  animation:hero-floor 11s ease-in-out infinite alternate;
+  will-change:transform,opacity;
+}
+@keyframes hero-breathe{
+  from{transform:scale(1.008)}
+  to{transform:scale(1.022)}
+}
+@keyframes hero-light{
+  0%{transform:translate3d(-1.8%,-.6%,0) scale(1);opacity:.58}
+  100%{transform:translate3d(1.6%,1%,0) scale(1.035);opacity:.80}
+}
+@keyframes hero-floor{
+  0%{transform:translate3d(-2.5%,0,0);opacity:.40}
+  100%{transform:translate3d(2.5%,-1.5%,0);opacity:.64}
+}
+@media (hover:hover) and (pointer:fine) and (min-width:901px){
+  .hero-art:hover .hero-media{transition-duration:180ms}
+}
 @media (max-width:900px){
   .hero-art{
     height:clamp(460px,125vw,560px);
@@ -189,6 +264,20 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     bottom:0;
     -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 9%,#000 18%,#000 100%);
     mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 9%,#000 18%,#000 100%);
+    animation-duration:18s;
+    transform-origin:76% 62%;
+  }
+  .hero-art::before{opacity:.48;filter:blur(14px)}
+  .hero-art::after{height:28%;opacity:.34;filter:blur(16px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-media,
+  .hero-media img,
+  .hero-art::before,
+  .hero-art::after{
+    animation:none!important;
+    transition:none!important;
+    transform:none!important;
   }
 }
 
@@ -350,6 +439,40 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     },{passive:true});
   }
 })();
+
+  // Hero depth: tiny cursor parallax on desktop; motion is intentionally restrained.
+  (function(){
+    var hero=document.querySelector('.hero-art');
+    if(!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var fine=window.matchMedia('(hover:hover) and (pointer:fine) and (min-width:901px)');
+    if(!fine.matches) return;
+
+    var frame=0, targetX=0, targetY=0, currentX=0, currentY=0;
+    function render(){
+      currentX += (targetX-currentX)*0.12;
+      currentY += (targetY-currentY)*0.12;
+      hero.style.setProperty('--hero-x', currentX.toFixed(2)+'px');
+      hero.style.setProperty('--hero-y', currentY.toFixed(2)+'px');
+      if(Math.abs(targetX-currentX)>.05 || Math.abs(targetY-currentY)>.05){
+        frame=requestAnimationFrame(render);
+      } else {
+        frame=0;
+      }
+    }
+    hero.addEventListener('pointermove',function(e){
+      var r=hero.getBoundingClientRect();
+      var nx=((e.clientX-r.left)/r.width)-0.5;
+      var ny=((e.clientY-r.top)/r.height)-0.5;
+      targetX=nx*-10;
+      targetY=ny*-6;
+      if(!frame) frame=requestAnimationFrame(render);
+    },{passive:true});
+    hero.addEventListener('pointerleave',function(){
+      targetX=0; targetY=0;
+      if(!frame) frame=requestAnimationFrame(render);
+    },{passive:true});
+  })();
+
 </script>
 </body>
 </html>
