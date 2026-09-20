@@ -196,16 +196,104 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   height:auto;
   margin:0;
   transform-origin:72% 52%;
-  animation:hero-breathe 10s ease-in-out infinite alternate;
   will-change:transform,filter;
 }
+
+.hero-fragment-stage{
+  position:absolute;
+  z-index:3;
+  inset:0;
+  width:100%;
+  aspect-ratio:16/9;
+  pointer-events:none;
+  transform:translate3d(var(--hero-x),var(--hero-y),0) scale(1.015);
+  transform-origin:center;
+  will-change:transform;
+}
+.hero-hole,
+.hero-fragment{
+  position:absolute;
+  inset:0;
+  background-image:url('/hero-desktop.png');
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  pointer-events:none;
+  transform-origin:var(--ox) var(--oy);
+  clip-path:var(--shape);
+  -webkit-clip-path:var(--shape);
+}
+.hero-hole{
+  z-index:1;
+  background-image:none;
+  background:rgba(246,240,230,.34);
+  -webkit-backdrop-filter:blur(16px) brightness(1.08) saturate(.78);
+  backdrop-filter:blur(16px) brightness(1.08) saturate(.78);
+  filter:blur(.35px);
+}
+.hero-fragment{
+  z-index:2;
+  opacity:1;
+  will-change:transform,opacity,filter;
+  animation:
+    fragment-arrive 1.08s cubic-bezier(.18,.78,.22,1) var(--delay) both,
+    fragment-float var(--float) ease-in-out calc(var(--delay) + 1.12s) infinite alternate;
+}
+.hero-piece-1{
+  --shape:polygon(33.53% 6.25%,36.65% 5.09%,37.76% 9.61%,34.57% 11.46%);
+  --ox:35.63%;--oy:8.10%;--sx:6.25%;--sy:12.89%;--sr:-5deg;
+  --fx:-.65%;--fy:.55%;--fr:-.55deg;--delay:80ms;--float:6.8s;
+}
+.hero-piece-2{
+  --shape:polygon(33.33% 12.38%,37.11% 13.43%,37.89% 19.68%,33.72% 20.95%);
+  --ox:35.51%;--oy:16.61%;--sx:6.29%;--sy:9.99%;--sr:4deg;
+  --fx:.72%;--fy:-.48%;--fr:.65deg;--delay:150ms;--float:7.6s;
+}
+.hero-piece-3{
+  --shape:polygon(32.10% 24.42%,35.42% 22.92%,36.52% 28.94%,33.27% 31.94%);
+  --ox:34.33%;--oy:27.05%;--sx:6.69%;--sy:6.44%;--sr:-4deg;
+  --fx:-.58%;--fy:.72%;--fr:-.48deg;--delay:230ms;--float:7.1s;
+}
+.hero-piece-4{
+  --shape:polygon(44.66% 58.33%,48.89% 57.41%,50.00% 63.77%,45.77% 66.32%);
+  --ox:47.33%;--oy:61.46%;--sx:2.27%;--sy:-5.26%;--sr:3deg;
+  --fx:.62%;--fy:.44%;--fr:.52deg;--delay:330ms;--float:8.2s;
+}
+.hero-piece-5{
+  --shape:polygon(48.44% 68.52%,51.56% 66.09%,53.26% 72.69%,49.93% 76.04%);
+  --ox:50.80%;--oy:70.83%;--sx:1.09%;--sy:-8.44%;--sr:-3deg;
+  --fx:-.54%;--fy:-.62%;--fr:-.42deg;--delay:420ms;--float:7.8s;
+}
+@keyframes fragment-arrive{
+  0%{
+    opacity:.05;
+    filter:blur(2.4px);
+    transform:translate3d(var(--sx),var(--sy),0) rotate(var(--sr)) scale(.86);
+  }
+  58%{
+    opacity:1;
+    filter:blur(.2px);
+  }
+  82%{
+    transform:translate3d(-.18%,.14%,0) rotate(.18deg) scale(1.012);
+  }
+  100%{
+    opacity:1;
+    filter:blur(0);
+    transform:translate3d(0,0,0) rotate(0) scale(1);
+  }
+}
+@keyframes fragment-float{
+  0%{transform:translate3d(0,0,0) rotate(0)}
+  100%{transform:translate3d(var(--fx),var(--fy),0) rotate(var(--fr))}
+}
+
 .hero-fx{
   position:absolute;
   inset:0;
   pointer-events:none;
 }
 .hero-fx-glow{
-  z-index:2;
+  z-index:4;
   translate:0 var(--mobile-glow-y);
   inset:-18%;
   background:
@@ -217,7 +305,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   mix-blend-mode:screen;
 }
 .hero-fx-sweep{
-  z-index:3;
+  z-index:5;
   inset:-30% -45%;
   background:linear-gradient(
     112deg,
@@ -235,7 +323,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   mix-blend-mode:screen;
 }
 .hero-fx-dust{
-  z-index:3;
+  z-index:5;
   translate:0 var(--mobile-dust-y);
   inset:-5%;
   background:
@@ -305,6 +393,25 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     transform:translate3d(0,var(--mobile-scroll-y),0) scale(1.045);
     transition:none;
   }
+  .hero-fragment-stage{
+    inset:auto;
+    width:163.5vw;
+    aspect-ratio:16/9;
+    right:-2vw;
+    bottom:-18px;
+    transform:translate3d(0,var(--mobile-scroll-y),0) scale(1.045);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 9%,#000 18%,#000 100%);
+    mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 9%,#000 18%,#000 100%);
+  }
+  .hero-hole{
+    -webkit-backdrop-filter:blur(13px) brightness(1.07) saturate(.80);
+    backdrop-filter:blur(13px) brightness(1.07) saturate(.80);
+  }
+  .hero-fragment{
+    animation:
+      fragment-arrive .98s cubic-bezier(.18,.78,.22,1) var(--delay) both,
+      fragment-float var(--float) ease-in-out calc(var(--delay) + 1.02s) infinite alternate;
+  }
   .hero-media img{
     position:absolute;
     width:163.5vw;
@@ -314,7 +421,6 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     bottom:0;
     -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 9%,#000 18%,#000 100%);
     mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 9%,#000 18%,#000 100%);
-    animation-duration:13s;
     transform-origin:76% 62%;
   }
   .hero-fx-glow{opacity:.48;filter:blur(20px)}
@@ -325,6 +431,8 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 @media (prefers-reduced-motion:reduce){
   .hero-media,
   .hero-media img,
+  .hero-fragment-stage,
+  .hero-fragment,
   .hero-fx,
   .hero-art::after{
     animation:none!important;
@@ -343,6 +451,20 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     <source media="(max-width: 900px)" srcset="/hero-desktop.png">
     <img src="/hero-desktop.png" alt="" decoding="async" fetchpriority="high">
   </picture>
+  <div class="hero-fragment-stage hero-holes" aria-hidden="true">
+    <i class="hero-hole hero-piece-1"></i>
+    <i class="hero-hole hero-piece-2"></i>
+    <i class="hero-hole hero-piece-3"></i>
+    <i class="hero-hole hero-piece-4"></i>
+    <i class="hero-hole hero-piece-5"></i>
+  </div>
+  <div class="hero-fragment-stage hero-pieces" aria-hidden="true">
+    <i class="hero-fragment hero-piece-1"></i>
+    <i class="hero-fragment hero-piece-2"></i>
+    <i class="hero-fragment hero-piece-3"></i>
+    <i class="hero-fragment hero-piece-4"></i>
+    <i class="hero-fragment hero-piece-5"></i>
+  </div>
   <div class="hero-fx hero-fx-glow" aria-hidden="true"></div>
   <div class="hero-fx hero-fx-sweep" aria-hidden="true"></div>
   <div class="hero-fx hero-fx-dust" aria-hidden="true"></div>
