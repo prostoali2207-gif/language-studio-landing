@@ -169,6 +169,9 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 .hero-art{
   --hero-x:0px;
   --hero-y:0px;
+  --mobile-scroll-y:0px;
+  --mobile-glow-y:0px;
+  --mobile-dust-y:0px;
   position:relative;
   z-index:2;
   width:100%;
@@ -203,6 +206,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 }
 .hero-fx-glow{
   z-index:2;
+  translate:0 var(--mobile-glow-y);
   inset:-18%;
   background:
     radial-gradient(34% 42% at 66% 43%,rgba(255,255,255,.55) 0%,rgba(255,247,230,.23) 38%,rgba(255,247,230,0) 74%),
@@ -232,6 +236,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 }
 .hero-fx-dust{
   z-index:3;
+  translate:0 var(--mobile-dust-y);
   inset:-5%;
   background:
     radial-gradient(circle at 22% 31%,rgba(255,255,255,.72) 0 1px,transparent 2px),
@@ -295,9 +300,10 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   }
   .hero-media{
     position:absolute;
-    inset:0;
+    inset:-18px 0;
     overflow:hidden;
-    transform:scale(1.025);
+    transform:translate3d(0,var(--mobile-scroll-y),0) scale(1.045);
+    transition:none;
   }
   .hero-media img{
     position:absolute;
@@ -520,6 +526,40 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
       targetX=0; targetY=0;
       if(!frame) frame=requestAnimationFrame(render);
     },{passive:true});
+  })();
+
+  // Mobile depth: scroll parallax replaces cursor movement on touch devices.
+  (function(){
+    var hero=document.querySelector('.hero-art');
+    if(!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var mobile=window.matchMedia('(max-width:900px)');
+    if(!mobile.matches) return;
+
+    var ticking=false;
+    function update(){
+      ticking=false;
+      var r=hero.getBoundingClientRect();
+      var h=Math.max(hero.offsetHeight,1);
+
+      // 0 at the top of the page, ~1 as the hero leaves the viewport.
+      var p=Math.max(0,Math.min(1,(-r.top)/(h*0.88)));
+      var mediaY=34*p;
+      var glowY=-18*p;
+      var dustY=14*p;
+
+      hero.style.setProperty('--mobile-scroll-y',mediaY.toFixed(2)+'px');
+      hero.style.setProperty('--mobile-glow-y',glowY.toFixed(2)+'px');
+      hero.style.setProperty('--mobile-dust-y',dustY.toFixed(2)+'px');
+    }
+    function onScroll(){
+      if(!ticking){
+        ticking=true;
+        requestAnimationFrame(update);
+      }
+    }
+    update();
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll,{passive:true});
   })();
 
 </script>
