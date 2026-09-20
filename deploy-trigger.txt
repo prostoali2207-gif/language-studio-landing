@@ -1,0 +1,1 @@
+Trigger Vercel deployment for the approved responsive hero.
