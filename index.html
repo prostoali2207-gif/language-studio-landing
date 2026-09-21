@@ -200,11 +200,126 @@ h2{font-size:clamp(26px,3.4vw,44px);line-height:1.15;max-width:20ch}
   }
 }
 
-.langs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:clamp(30px,5vh,52px)}
-.lang{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px}
-.lang .code{font-family:var(--serif);font-size:13px;letter-spacing:.14em;color:var(--clay)}
-.lang h3{font-size:28px;margin:10px 0 6px}
-.lang p{font-size:14px;color:var(--muted);font-weight:300}
+.audience-section{
+  padding-top:clamp(76px,11vh,124px);
+  padding-bottom:clamp(76px,11vh,124px);
+}
+.audience-head{
+  display:grid;
+  grid-template-columns:120px minmax(0,1.35fr) minmax(260px,.65fr);
+  gap:clamp(24px,4vw,58px);
+  align-items:end;
+  margin-bottom:clamp(42px,6vh,70px);
+}
+.audience-index{
+  align-self:start;
+  padding-top:8px;
+  font-family:var(--serif);
+  font-size:13px;
+  letter-spacing:.12em;
+  color:var(--clay);
+}
+.audience-title{
+  max-width:12ch;
+  font-size:clamp(40px,4.8vw,68px);
+  line-height:1.02;
+  letter-spacing:-.03em;
+}
+.audience-sub{
+  max-width:35ch;
+  padding-bottom:7px;
+  font-size:clamp(15px,1.15vw,17px);
+  line-height:1.62;
+  color:var(--muted);
+  font-weight:300;
+}
+.audience-list{
+  border-top:1px solid var(--line-2);
+}
+.audience-item{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(260px,.95fr);
+  gap:clamp(28px,6vw,88px);
+  align-items:start;
+  padding:clamp(30px,4.5vw,54px) 0;
+  border-bottom:1px solid var(--line-2);
+  overflow:hidden;
+}
+.audience-item::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(255,253,248,.54),rgba(255,253,248,0) 72%);
+  opacity:0;
+  transform:translateX(-3%);
+  transition:opacity .28s ease,transform .28s ease;
+  pointer-events:none;
+}
+.audience-name,
+.audience-copy{
+  position:relative;
+  z-index:1;
+}
+.audience-code{
+  display:block;
+  margin-bottom:12px;
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#806f61;
+}
+.audience-item h3{
+  font-size:clamp(38px,5vw,72px);
+  line-height:.98;
+  letter-spacing:-.035em;
+}
+.audience-copy p{
+  max-width:43ch;
+  font-size:clamp(15px,1.12vw,17px);
+  line-height:1.62;
+  color:var(--muted);
+  font-weight:300;
+}
+.audience-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 16px;
+  margin-top:19px;
+  color:#64584d;
+  font-size:11px;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.audience-tags span{
+  position:relative;
+}
+.audience-tags span:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:-10px;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:var(--clay);
+  transform:translateY(-50%);
+}
+@media (hover:hover) and (pointer:fine){
+  .audience-item:hover::before{
+    opacity:1;
+    transform:translateX(0);
+  }
+  .audience-item h3{
+    transition:transform .28s ease,color .28s ease;
+  }
+  .audience-item:hover h3{
+    transform:translateX(10px);
+    color:var(--forest);
+  }
+}
 
 .tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(28px,4vh,44px)}
 .tab{padding:11px 22px;border-radius:999px;border:1px solid var(--line-2);background:transparent;cursor:pointer;font-size:15px}
@@ -279,7 +394,15 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   .method-step{grid-template-columns:40px minmax(0,1fr);gap:12px;padding:22px 0}
   .method-step h3{font-size:clamp(22px,6.5vw,27px)}
   .method-step p{margin-top:8px;font-size:14.5px}
-  .langs,.trial,.proof-grid,.reviews,.details-grid{grid-template-columns:1fr}
+  .audience-head{grid-template-columns:1fr;gap:14px;margin-bottom:34px}
+  .audience-index{padding-top:0}
+  .audience-title{max-width:12ch;font-size:clamp(36px,10vw,48px)}
+  .audience-sub{max-width:36ch;padding-bottom:0;margin-top:4px}
+  .audience-item{grid-template-columns:1fr;gap:18px;padding:30px 0}
+  .audience-item h3{font-size:clamp(40px,12vw,56px)}
+  .audience-copy p{font-size:14.5px}
+  .audience-tags{gap:7px 14px;margin-top:16px;font-size:9.5px;line-height:1.5}
+  .trial,.proof-grid,.reviews,.details-grid{grid-template-columns:1fr}
   .facts{flex-direction:column;gap:14px}
 }
 
@@ -837,14 +960,43 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   </div>
 </section>
 
-<section id="languages">
+<section id="languages" class="audience-section">
   <div class="shell">
-    <p class="kicker">Для кого</p>
-    <h2>Взрослым и детям — с разными задачами.</h2>
-    <p class="sub">Формат один на один позволяет не вести всех по одной программе, а сосредоточиться на том, что важно конкретному ученику.</p>
-    <div class="langs">
-      <div class="lang"><p class="code">ADULTS</p><h3>Взрослым</h3><p>Работа, переезд, поездки, разговорная речь, словарный запас, грамматика, произношение и уверенность в общении.</p></div>
-      <div class="lang"><p class="code">KIDS</p><h3>Детям</h3><p>Школьная программа, пробелы в знаниях, контрольные и экзамены, грамматика, словарь и разговорная практика.</p></div>
+    <div class="audience-head">
+      <p class="audience-index" aria-hidden="true">02</p>
+      <div>
+        <p class="kicker">Для кого</p>
+        <h2 class="audience-title">Один язык. Разные причины начать.</h2>
+      </div>
+      <p class="audience-sub">Занятия один на один позволяют строить обучение вокруг конкретного человека — его возраста, цели, темпа и текущего уровня.</p>
+    </div>
+
+    <div class="audience-list">
+      <article class="audience-item">
+        <div class="audience-name">
+          <span class="audience-code">Adults / English · Français</span>
+          <h3>Взрослым</h3>
+        </div>
+        <div class="audience-copy">
+          <p>Когда язык нужен для работы, переезда, поездок или просто чтобы наконец говорить увереннее — программа собирается вокруг этих ситуаций, а не вокруг учебника.</p>
+          <div class="audience-tags" aria-label="Задачи для взрослых">
+            <span>Работа</span><span>Переезд</span><span>Поездки</span><span>Общение</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="audience-item">
+        <div class="audience-name">
+          <span class="audience-code">Kids / English · Français</span>
+          <h3>Детям</h3>
+        </div>
+        <div class="audience-copy">
+          <p>Когда нужно разобраться со школьной программой, закрыть пробелы, подготовиться к контрольной или экзамену и начать увереннее пользоваться языком.</p>
+          <div class="audience-tags" aria-label="Задачи для детей">
+            <span>Школа</span><span>Пробелы</span><span>Контрольные</span><span>Экзамены</span>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
