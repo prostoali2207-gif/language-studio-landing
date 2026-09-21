@@ -953,16 +953,158 @@ h2{font-size:clamp(26px,3.4vw,44px);line-height:1.15;max-width:20ch}
   line-height:1.5;
   text-transform:uppercase;
 }
-.faq{margin-top:clamp(28px,4vh,46px);max-width:760px}
-.q{border-top:1px solid var(--line)}
-.q:last-child{border-bottom:1px solid var(--line)}
-.q button{width:100%;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:20px 0;background:none;border:0;cursor:pointer;text-align:left;font-size:16px}
-.q .mark{color:var(--clay);flex:none}
-.q .a{display:none;padding:0 0 20px;color:var(--muted);line-height:1.6;font-weight:300;max-width:60ch}
-.q.open .a{display:block}
+.faq-section{
+  padding-top:clamp(84px,12vh,136px);
+  padding-bottom:clamp(84px,12vh,136px);
+}
+.faq-layout{
+  display:grid;
+  grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);
+  gap:clamp(54px,9vw,126px);
+  align-items:start;
+}
+.faq-intro{
+  position:sticky;
+  top:96px;
+}
+.faq-index{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:20px;
+  font-family:var(--serif);
+  font-size:13px;
+  letter-spacing:.12em;
+  color:var(--clay);
+}
+.faq-index::after{
+  content:"";
+  width:54px;
+  height:1px;
+  background:var(--line-2);
+}
+.faq-title{
+  max-width:9ch;
+  font-size:clamp(40px,4.6vw,64px);
+  line-height:1.02;
+  letter-spacing:-.03em;
+}
+.faq-note{
+  max-width:31ch;
+  margin-top:20px;
+  color:var(--muted);
+  font-size:14.5px;
+  line-height:1.6;
+  font-weight:300;
+}
+.faq{
+  border-top:1px solid var(--line-2);
+}
+.q{
+  border-bottom:1px solid var(--line-2);
+}
+.q button{
+  width:100%;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 34px;
+  gap:24px;
+  align-items:center;
+  min-height:76px;
+  padding:20px 0;
+  border:0;
+  background:none;
+  color:var(--ink);
+  cursor:pointer;
+  text-align:left;
+  font-family:var(--serif);
+  font-size:clamp(19px,1.55vw,24px);
+  line-height:1.25;
+}
+.q .mark{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:32px;
+  height:32px;
+  border:1px solid var(--line-2);
+  border-radius:50%;
+  color:var(--clay);
+  font-family:var(--sans);
+  font-size:18px;
+  line-height:1;
+  transition:transform .2s ease,border-color .2s ease;
+}
+.q.open .mark{
+  transform:rotate(180deg);
+  border-color:var(--clay);
+}
+.q .a{
+  display:none;
+  max-width:57ch;
+  padding:0 54px 22px 0;
+  color:var(--muted);
+  font-size:14.5px;
+  line-height:1.68;
+  font-weight:300;
+}
+.q.open .a{
+  display:block;
+}
 
-footer{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+footer{
+  padding:clamp(48px,7vh,78px) 0;
+  border-top:0;
+  background:#1f2d25;
+  color:rgba(246,240,230,.72);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:32px 48px;
+  align-items:end;
+}
+.footer-brand{
+  font-family:var(--serif);
+  font-size:clamp(34px,4.8vw,68px);
+  line-height:.95;
+  letter-spacing:-.035em;
+  color:#f6f0e6;
+}
+.footer-brand span{
+  display:block;
+  margin-top:10px;
+  color:#d8c8b7;
+  font-size:.42em;
+  font-style:italic;
+  letter-spacing:0;
+}
+.footer-actions{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:18px;
+}
+.footer-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  padding-bottom:7px;
+  border-bottom:1px solid rgba(246,240,230,.48);
+  color:#f6f0e6;
+  font-family:var(--serif);
+  font-size:clamp(18px,1.6vw,24px);
+}
+.footer-meta{
+  max-width:42ch;
+  font-size:10px;
+  line-height:1.6;
+  letter-spacing:.14em;
+  text-align:right;
+  text-transform:uppercase;
+}
+footer a:focus-visible{
+  outline-color:#f6f0e6;
+}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
 
@@ -1044,6 +1186,16 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   .field select{font-size:18px}
   .goals{grid-template-columns:1fr 1fr}
   .goal{min-height:48px;font-size:13px}
+  .faq-layout{grid-template-columns:1fr;gap:36px}
+  .faq-intro{position:static}
+  .faq-title{max-width:10ch;font-size:clamp(36px,10vw,48px)}
+  .faq-note{margin-top:16px}
+  .q button{min-height:68px;grid-template-columns:minmax(0,1fr) 30px;gap:16px;font-size:19px}
+  .q .mark{width:30px;height:30px}
+  .q .a{padding:0 42px 20px 0;font-size:14px}
+  .footer-grid{grid-template-columns:1fr;align-items:start}
+  .footer-actions{align-items:flex-start}
+  .footer-meta{text-align:left}
   .facts{flex-direction:column;gap:14px}
 }
 
@@ -1836,25 +1988,33 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   </div>
 </section>
 
-<section id="faq">
-  <div class="shell">
-    <p class="kicker">FAQ</p>
-    <h2>Перед первым занятием</h2>
+<section id="faq" class="faq-section">
+  <div class="shell faq-layout">
+    <div class="faq-intro">
+      <p class="faq-index" aria-hidden="true">08</p>
+      <p class="kicker">FAQ</p>
+      <h2 class="faq-title">Перед первым занятием.</h2>
+      <p class="faq-note">Короткие ответы на вопросы, которые обычно возникают до записи.</p>
+    </div>
+
     <div class="faq">
-      <div class="q"><button>Сколько стоит занятие?<span class="mark">+</span></button><div class="a">1300 ₽ за стандартное индивидуальное занятие продолжительностью 60 минут.</div></div>
-      <div class="q"><button>Где проходят занятия?<span class="mark">+</span></button><div class="a">Онлайн — в Zoom, Google Meet или Telegram. Платформу выбираем по договорённости.</div></div>
-      <div class="q"><button>Обязательны ли домашние задания?<span class="mark">+</span></button><div class="a">Нет. Задания даются регулярно, но их объём зависит от цели и загруженности ученика. Важнее заниматься без перегруза и сохранять системность.</div></div>
-      <div class="q"><button>Можно ли заниматься ребёнку?<span class="mark">+</span></button><div class="a">Да. Зайнаб работает с детьми: помогает закрывать пробелы, разбираться со школьной программой, готовиться к контрольным и экзаменам. Для младших детей длительность урока при необходимости можно сократить.</div></div>
-      <div class="q"><button>Нужно ли заранее знать свой уровень?<span class="mark">+</span></button><div class="a">Нет. Текущий уровень определим на пробном уроке и от него выберем первый приоритет.</div></div>
-      <div class="q"><button>Что будет на пробном уроке?<span class="mark">+</span></button><div class="a">Определим текущий уровень, разберём цель и поймём, на чём стоит сосредоточиться в первую очередь.</div></div>
+      <div class="q"><button type="button" aria-expanded="false" aria-controls="faq-a1">Сколько стоит занятие?<span class="mark" aria-hidden="true">+</span></button><div class="a" id="faq-a1">1300 ₽ за стандартное индивидуальное занятие продолжительностью 60 минут.</div></div>
+      <div class="q"><button type="button" aria-expanded="false" aria-controls="faq-a2">Где проходят занятия?<span class="mark" aria-hidden="true">+</span></button><div class="a" id="faq-a2">Онлайн — в Zoom, Google Meet или Telegram. Платформу выбираем по договорённости.</div></div>
+      <div class="q"><button type="button" aria-expanded="false" aria-controls="faq-a3">Обязательны ли домашние задания?<span class="mark" aria-hidden="true">+</span></button><div class="a" id="faq-a3">Нет. Задания даются регулярно, но их объём зависит от цели и загруженности ученика. Важнее заниматься без перегруза и сохранять системность.</div></div>
+      <div class="q"><button type="button" aria-expanded="false" aria-controls="faq-a4">Можно ли заниматься ребёнку?<span class="mark" aria-hidden="true">+</span></button><div class="a" id="faq-a4">Да. Зайнаб работает с детьми: помогает закрывать пробелы, разбираться со школьной программой, готовиться к контрольным и экзаменам. Для младших детей длительность урока при необходимости можно сократить.</div></div>
+      <div class="q"><button type="button" aria-expanded="false" aria-controls="faq-a5">Нужно ли заранее знать свой уровень?<span class="mark" aria-hidden="true">+</span></button><div class="a" id="faq-a5">Нет. Текущий уровень определим на пробном уроке и от него выберем первый приоритет.</div></div>
+      <div class="q"><button type="button" aria-expanded="false" aria-controls="faq-a6">Что будет на пробном уроке?<span class="mark" aria-hidden="true">+</span></button><div class="a" id="faq-a6">Определим текущий уровень, разберём цель и поймём, на чём стоит сосредоточиться в первую очередь.</div></div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="shell f">
-    <span class="brand">Zaynab <span>/ Languages</span></span>
-    <span>English · Français · взрослым и детям · онлайн 1-на-1</span>
+  <div class="shell footer-grid">
+    <div class="footer-brand">ZAYNAB <span>Languages</span></div>
+    <div class="footer-actions">
+      <a class="footer-cta" href="#trial">Записаться на пробный урок <span aria-hidden="true">→</span></a>
+      <div class="footer-meta">English · Français · взрослым и детям · онлайн 1-на-1</div>
+    </div>
   </div>
 </footer>
 
@@ -1895,6 +2055,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   document.querySelectorAll('.q button').forEach(function(b){
     b.addEventListener('click',function(){
       var q=b.parentElement, open=q.classList.toggle('open');
+      b.setAttribute('aria-expanded',open?'true':'false');
       b.querySelector('.mark').textContent=open?'−':'+';
     });
   });
