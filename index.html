@@ -196,8 +196,23 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   height:auto;
   margin:0;
   transform-origin:72% 52%;
-  animation:hero-breathe 10s ease-in-out infinite alternate;
-  will-change:transform,filter;
+  animation:none;
+}
+.hero-media-video{
+  position:absolute;
+  z-index:2;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity .38s ease;
+  pointer-events:none;
+  will-change:opacity;
+}
+.hero-media-video.is-ready{
+  opacity:1;
 }
 
 .hero-fx{
@@ -565,14 +580,16 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     transform:translate3d(0,var(--mobile-scroll-y),0) scale(1.04);
     transition:none;
   }
-  .hero-media img{
+  .hero-media img,
+  .hero-media-video{
     position:absolute;
+    inset:auto;
     width:176vw;
     max-width:none;
     height:auto;
+    aspect-ratio:16/9;
     right:-10vw;
     bottom:58px;
-    animation-duration:13s;
     transform-origin:76% 62%;
   }
   .hero-fx-glow{opacity:.48;filter:blur(20px)}
@@ -588,6 +605,9 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     animation:none!important;
     transition:none!important;
     transform:none!important;
+  }
+  .hero-media-video{
+    display:none!important;
   }
 }
 
@@ -638,10 +658,12 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     </div>
   </div>
 
-  <picture class="hero-media" aria-hidden="true">
-    <source media="(max-width: 900px)" srcset="/hero-desktop.png">
+  <div class="hero-media" aria-hidden="true">
     <img src="/hero-desktop.png" alt="" decoding="async" fetchpriority="high">
-  </picture>
+    <video class="hero-media-video" autoplay muted loop playsinline preload="auto" poster="/hero-desktop.png" tabindex="-1">
+      <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IwyFwSIl4DSmyJVLt9bW4ap9Fn/dfa30065-058d-417a-ab33-85c3096d0c09.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-fx hero-fx-glow" aria-hidden="true"></div>
   <div class="hero-fx hero-fx-sweep" aria-hidden="true"></div>
   <div class="hero-fx hero-fx-dust" aria-hidden="true"></div>
@@ -859,6 +881,41 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
     update();
     window.addEventListener('scroll',onScroll,{passive:true});
     window.addEventListener('resize',onScroll,{passive:true});
+  })();
+
+  // Cinemagraph: only local paper/ribbon motion; poster remains the fail-safe.
+  (function(){
+    var video=document.querySelector('.hero-media-video');
+    if(!video) return;
+
+    var reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+    if(reduced.matches){
+      video.pause();
+      return;
+    }
+
+    function reveal(){
+      video.classList.add('is-ready');
+    }
+    if(video.readyState>=2) reveal();
+    else video.addEventListener('loadeddata',reveal,{once:true});
+
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            var play=video.play();
+            if(play && play.catch) play.catch(function(){});
+          }else{
+            video.pause();
+          }
+        });
+      },{threshold:0.04});
+      io.observe(video);
+    }else{
+      var play=video.play();
+      if(play && play.catch) play.catch(function(){});
+    }
   })();
 
 </script>
