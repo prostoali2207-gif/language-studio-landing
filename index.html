@@ -470,20 +470,172 @@ h2{font-size:clamp(26px,3.4vw,44px);line-height:1.15;max-width:20ch}
   }
 }
 
-.trial{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,64px);align-items:start}
-.checks{list-style:none;padding:0;margin:26px 0 0}
-.checks li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--muted);font-weight:300}
-.checks b{font-family:var(--serif);color:var(--clay);font-weight:400;font-size:13px}
-form{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3vw,32px)}
-form h3{font-size:22px;margin-bottom:20px}
-label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
-select{width:100%;padding:13px 14px;border:1px solid var(--line-2);border-radius:10px;background:transparent}
-.goals{display:flex;flex-wrap:wrap;gap:8px}
-.goal{padding:9px 16px;border-radius:999px;border:1px solid var(--line-2);background:transparent;cursor:pointer;font-size:14px}
-.goal[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:#F6F0E6}
-form .btn-p{width:100%;margin-top:24px}
-.hint{margin-top:12px;font-size:12.5px;color:var(--muted);line-height:1.5}
-
+.trial-section{
+  background:#eee4d7;
+  padding-top:clamp(84px,12vh,136px);
+  padding-bottom:clamp(84px,12vh,136px);
+}
+.trial{
+  display:grid;
+  grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+  gap:clamp(54px,9vw,126px);
+  align-items:start;
+}
+.trial-index{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:20px;
+  font-family:var(--serif);
+  font-size:13px;
+  letter-spacing:.12em;
+  color:var(--clay);
+}
+.trial-index::after{
+  content:"";
+  width:54px;
+  height:1px;
+  background:var(--line-2);
+}
+.trial-title{
+  max-width:11ch;
+  font-size:clamp(40px,4.8vw,68px);
+  line-height:1.02;
+  letter-spacing:-.03em;
+}
+.trial-sub{
+  max-width:35ch;
+  margin-top:22px;
+  color:var(--muted);
+  font-size:clamp(15px,1.15vw,17px);
+  line-height:1.62;
+  font-weight:300;
+}
+.checks{
+  list-style:none;
+  padding:0;
+  margin:clamp(30px,4vh,44px) 0 0;
+  max-width:430px;
+  border-top:1px solid var(--line-2);
+}
+.checks li{
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr);
+  gap:12px;
+  padding:16px 0;
+  border-bottom:1px solid var(--line);
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.5;
+  font-weight:300;
+}
+.checks b{
+  font-family:var(--serif);
+  color:var(--clay);
+  font-weight:400;
+  font-size:12px;
+  letter-spacing:.08em;
+}
+.trial-form{
+  background:var(--paper);
+  border:1px solid var(--line-2);
+  padding:clamp(24px,3.4vw,42px);
+  box-shadow:0 26px 70px rgba(73,53,38,.07);
+}
+.trial-form-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:28px;
+  padding-bottom:22px;
+  border-bottom:1px solid var(--line);
+}
+.trial-form h3{
+  max-width:12ch;
+  font-size:clamp(26px,2.35vw,35px);
+  line-height:1.08;
+  letter-spacing:-.018em;
+}
+.trial-form-step{
+  color:#806f61;
+  font-size:9.5px;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.field{
+  padding:18px 0 4px;
+  border-bottom:1px solid var(--line-2);
+}
+.field label,
+.trial-form > label{
+  display:block;
+  margin:0 0 5px;
+  color:#806f61;
+  font-size:9.5px;
+  font-weight:500;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+.field select{
+  width:100%;
+  min-height:48px;
+  padding:9px 30px 9px 0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:19px;
+  cursor:pointer;
+}
+.field select:focus-visible{
+  outline:2px solid var(--forest);
+  outline-offset:4px;
+}
+.goal-label{
+  margin-top:26px!important;
+}
+.goals{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin-top:11px;
+}
+.goal{
+  min-height:46px;
+  padding:10px 13px;
+  border:1px solid var(--line-2);
+  border-radius:0;
+  background:transparent;
+  color:#4f473f;
+  cursor:pointer;
+  font-size:13.5px;
+  text-align:left;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.goal[aria-pressed="true"]{
+  background:var(--forest);
+  border-color:var(--forest);
+  color:#F6F0E6;
+}
+.trial-form .btn-p{
+  width:100%;
+  min-height:56px;
+  margin-top:28px;
+  font-family:var(--serif);
+  font-size:16px;
+}
+.hint{
+  max-width:45ch;
+  margin-top:13px;
+  color:var(--muted);
+  font-size:12.5px;
+  line-height:1.55;
+  font-weight:300;
+}
 .teacher-section{
   padding-top:clamp(84px,12vh,136px);
   padding-bottom:clamp(84px,12vh,136px);
@@ -880,7 +1032,18 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   .detail{grid-template-columns:1fr;gap:8px;padding:22px 0}
   .detail strong{font-size:24px}
   .details-note{align-items:flex-start;flex-direction:column;gap:6px}
-  .trial{grid-template-columns:1fr}
+  .trial{grid-template-columns:1fr;gap:42px}
+  .trial-title{max-width:11ch;font-size:clamp(36px,10vw,48px)}
+  .trial-sub{margin-top:18px;font-size:14.5px}
+  .checks{margin-top:28px}
+  .trial-form{padding:24px 18px}
+  .trial-form-head{align-items:flex-start;margin-bottom:20px;padding-bottom:18px}
+  .trial-form h3{font-size:27px}
+  .trial-form-step{padding-top:5px}
+  .field{padding-top:16px}
+  .field select{font-size:18px}
+  .goals{grid-template-columns:1fr 1fr}
+  .goal{min-height:48px;font-size:13px}
   .facts{flex-direction:column;gap:14px}
 }
 
@@ -1623,27 +1786,42 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   </div>
 </section>
 
-<section id="trial">
+<section id="trial" class="trial-section">
   <div class="shell trial">
     <div>
+      <p class="trial-index" aria-hidden="true">07</p>
       <p class="kicker">Первый шаг</p>
-      <h2>Сначала разберём, что именно вам нужно.</h2>
-      <p class="sub">На пробном уроке определим текущий уровень, цель и ближайший приоритет. После этого будет понятно, на чём строить занятия.</p>
+      <h2 class="trial-title">Сначала разберём, что именно вам нужно.</h2>
+      <p class="trial-sub">На пробном уроке определим текущий уровень, цель и ближайший приоритет. После этого будет понятно, на чём строить занятия.</p>
       <ul class="checks">
-        <li><b>01</b>определим текущий уровень</li>
-        <li><b>02</b>разберём вашу цель</li>
-        <li><b>03</b>выберем, с чего начать</li>
+        <li><b>01</b><span>Определим текущий уровень</span></li>
+        <li><b>02</b><span>Разберём вашу цель</span></li>
+        <li><b>03</b><span>Выберем, с чего начать</span></li>
       </ul>
     </div>
-    <form id="f">
-      <h3>Записаться на пробный урок</h3>
-      <label for="who">Кому нужны занятия</label>
-      <select id="who"><option>Мне</option><option>Ребёнку</option></select>
-      <label for="lang">Выберите язык</label>
-      <select id="lang"><option>Английский</option><option>Французский</option></select>
-      <label for="lvl">Текущий уровень</label>
-      <select id="lvl"><option>Не знаю</option><option>С нуля</option><option>Начальный (A1–A2)</option><option>Средний (B1–B2)</option><option>Продвинутый (C1–C2)</option></select>
-      <label>Главная задача</label>
+
+    <form id="f" class="trial-form">
+      <div class="trial-form-head">
+        <h3>Записаться на пробный урок</h3>
+        <span class="trial-form-step">4 коротких выбора</span>
+      </div>
+
+      <div class="field">
+        <label for="who">Кому нужны занятия</label>
+        <select id="who"><option>Мне</option><option>Ребёнку</option></select>
+      </div>
+
+      <div class="field">
+        <label for="lang">Язык</label>
+        <select id="lang"><option>Английский</option><option>Французский</option></select>
+      </div>
+
+      <div class="field">
+        <label for="lvl">Текущий уровень</label>
+        <select id="lvl"><option>Не знаю</option><option>С нуля</option><option>Начальный (A1–A2)</option><option>Средний (B1–B2)</option><option>Продвинутый (C1–C2)</option></select>
+      </div>
+
+      <label class="goal-label">Главная задача</label>
       <div class="goals">
         <button type="button" class="goal" aria-pressed="true">Работа</button>
         <button type="button" class="goal" aria-pressed="false">Переезд</button>
@@ -1651,6 +1829,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
         <button type="button" class="goal" aria-pressed="false">Общение</button>
         <button type="button" class="goal" aria-pressed="false">Школа / экзамены</button>
       </div>
+
       <button type="button" class="btn btn-p" id="send">Записаться через Telegram</button>
       <p class="hint">Откроется Telegram с готовой заявкой для @inspo25. Останется нажать «Отправить».</p>
     </form>
