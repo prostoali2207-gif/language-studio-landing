@@ -321,14 +321,154 @@ h2{font-size:clamp(26px,3.4vw,44px);line-height:1.15;max-width:20ch}
   }
 }
 
-.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(28px,4vh,44px)}
-.tab{padding:11px 22px;border-radius:999px;border:1px solid var(--line-2);background:transparent;cursor:pointer;font-size:15px}
-.tab[aria-selected="true"]{background:var(--forest);border-color:var(--forest);color:#F6F0E6}
-.panel{margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(22px,3vw,34px);max-width:640px}
-.panel h3{font-size:22px;margin-bottom:10px}
-.panel p{color:var(--muted);line-height:1.6;font-weight:300}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chips span{font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.goals-section{
+  background:#28382f;
+  color:#f6f0e6;
+  border-top:0;
+  padding-top:clamp(78px,11vh,126px);
+  padding-bottom:clamp(78px,11vh,126px);
+}
+.goals-layout{
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:clamp(52px,9vw,124px);
+  align-items:start;
+}
+.goals-intro .kicker{
+  color:#d5a27d;
+}
+.goals-index{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:20px;
+  font-family:var(--serif);
+  font-size:13px;
+  letter-spacing:.12em;
+  color:#d5a27d;
+}
+.goals-index::after{
+  content:"";
+  width:54px;
+  height:1px;
+  background:rgba(246,240,230,.30);
+}
+.goals-title{
+  max-width:10.5ch;
+  font-size:clamp(40px,4.6vw,66px);
+  line-height:1.02;
+  letter-spacing:-.03em;
+}
+.goals-sub{
+  max-width:35ch;
+  margin-top:24px;
+  color:rgba(246,240,230,.66);
+  font-size:clamp(15px,1.15vw,17px);
+  line-height:1.62;
+  font-weight:300;
+}
+.goals-nav{
+  border-top:1px solid rgba(246,240,230,.24);
+}
+.goal-tab{
+  width:100%;
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr) 28px;
+  gap:14px;
+  align-items:center;
+  padding:18px 0;
+  border:0;
+  border-bottom:1px solid rgba(246,240,230,.18);
+  background:transparent;
+  color:rgba(246,240,230,.58);
+  text-align:left;
+  cursor:pointer;
+  transition:color .22s ease,padding-left .22s ease;
+}
+.goal-tab .goal-tab-n{
+  font-family:var(--serif);
+  font-size:11px;
+  letter-spacing:.1em;
+  color:#d5a27d;
+}
+.goal-tab .goal-tab-label{
+  font-family:var(--serif);
+  font-size:clamp(24px,2.2vw,34px);
+  line-height:1.05;
+}
+.goal-tab .goal-tab-arrow{
+  font-size:20px;
+  opacity:0;
+  transform:translateX(-7px);
+  transition:opacity .22s ease,transform .22s ease;
+}
+.goal-tab[aria-selected="true"]{
+  color:#fffaf1;
+  padding-left:10px;
+}
+.goal-tab[aria-selected="true"] .goal-tab-label{
+  font-style:italic;
+}
+.goal-tab[aria-selected="true"] .goal-tab-arrow{
+  opacity:1;
+  transform:translateX(0);
+}
+.goal-detail{
+  margin-top:clamp(30px,4vw,46px);
+  padding-left:clamp(56px,5vw,76px);
+  max-width:650px;
+}
+.goal-detail-code{
+  margin-bottom:12px;
+  font-size:9.5px;
+  font-weight:500;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#d5a27d;
+}
+.goal-detail h3{
+  max-width:18ch;
+  font-size:clamp(26px,2.7vw,40px);
+  line-height:1.12;
+  letter-spacing:-.018em;
+}
+.goal-detail > p:not(.goal-detail-code){
+  max-width:46ch;
+  margin-top:14px;
+  color:rgba(246,240,230,.66);
+  line-height:1.65;
+  font-weight:300;
+}
+.goal-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 16px;
+  margin-top:20px;
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(246,240,230,.58);
+}
+.goal-tags span{
+  position:relative;
+}
+.goal-tags span:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:-10px;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#d5a27d;
+  transform:translateY(-50%);
+}
+@media (hover:hover) and (pointer:fine){
+  .goal-tab:hover{
+    color:#fffaf1;
+    padding-left:10px;
+  }
+}
 
 .trial{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,64px);align-items:start}
 .checks{list-style:none;padding:0;margin:26px 0 0}
@@ -402,6 +542,15 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   .audience-item h3{font-size:clamp(40px,12vw,56px)}
   .audience-copy p{font-size:14.5px}
   .audience-tags{gap:7px 14px;margin-top:16px;font-size:9.5px;line-height:1.5}
+  .goals-layout{grid-template-columns:1fr;gap:38px}
+  .goals-title{max-width:11ch;font-size:clamp(36px,10vw,48px)}
+  .goals-sub{margin-top:18px}
+  .goal-tab{grid-template-columns:34px minmax(0,1fr) 22px;padding:16px 0}
+  .goal-tab .goal-tab-label{font-size:clamp(23px,7vw,30px)}
+  .goal-tab[aria-selected="true"]{padding-left:6px}
+  .goal-detail{margin-top:28px;padding-left:0}
+  .goal-detail h3{font-size:clamp(25px,7.5vw,34px)}
+  .goal-detail > p:not(.goal-detail-code){font-size:14.5px}
   .trial,.proof-grid,.reviews,.details-grid{grid-template-columns:1fr}
   .facts{flex-direction:column;gap:14px}
 }
@@ -1001,22 +1150,30 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   </div>
 </section>
 
-<section id="goals">
-  <div class="shell">
-    <p class="kicker">Под вашу цель</p>
-    <h2>Что должно стать легче после занятий?</h2>
-    <p class="sub">Выберите ближайшую задачу — она задаёт фокус обучения и помогает не тратить время на лишнее.</p>
-    <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true" data-g="work">Работа</button>
-      <button class="tab" role="tab" aria-selected="false" data-g="move">Переезд</button>
-      <button class="tab" role="tab" aria-selected="false" data-g="trip">Поездки</button>
-      <button class="tab" role="tab" aria-selected="false" data-g="talk">Общение</button>
-      <button class="tab" role="tab" aria-selected="false" data-g="school">Школа</button>
+<section id="goals" class="goals-section">
+  <div class="shell goals-layout">
+    <div class="goals-intro">
+      <p class="goals-index" aria-hidden="true">03</p>
+      <p class="kicker">Под вашу цель</p>
+      <h2 class="goals-title">Что должно стать легче после занятий?</h2>
+      <p class="goals-sub">Выберите ближайшую задачу. Она задаёт фокус обучения и помогает не тратить время на то, что сейчас вам не нужно.</p>
     </div>
-    <div class="panel">
-      <h3 id="gt">Говорить и понимать в рабочих ситуациях.</h3>
-      <p id="gp">Фокус на встречах, переписке, звонках, презентациях или общении с клиентами — в зависимости от вашей задачи.</p>
-      <div class="chips"><span>лексика в контексте</span><span>практика</span><span>обратная связь</span></div>
+
+    <div class="goals-experience">
+      <div class="goals-nav" role="tablist" aria-label="Цель обучения">
+        <button class="goal-tab" role="tab" aria-selected="true" data-g="work"><span class="goal-tab-n">01</span><span class="goal-tab-label">Работа</span><span class="goal-tab-arrow">↗</span></button>
+        <button class="goal-tab" role="tab" aria-selected="false" data-g="move"><span class="goal-tab-n">02</span><span class="goal-tab-label">Переезд</span><span class="goal-tab-arrow">↗</span></button>
+        <button class="goal-tab" role="tab" aria-selected="false" data-g="trip"><span class="goal-tab-n">03</span><span class="goal-tab-label">Поездки</span><span class="goal-tab-arrow">↗</span></button>
+        <button class="goal-tab" role="tab" aria-selected="false" data-g="talk"><span class="goal-tab-n">04</span><span class="goal-tab-label">Общение</span><span class="goal-tab-arrow">↗</span></button>
+        <button class="goal-tab" role="tab" aria-selected="false" data-g="school"><span class="goal-tab-n">05</span><span class="goal-tab-label">Школа / экзамены</span><span class="goal-tab-arrow">↗</span></button>
+      </div>
+
+      <div class="goal-detail" aria-live="polite">
+        <p class="goal-detail-code">Current focus</p>
+        <h3 id="gt">Говорить и понимать в рабочих ситуациях.</h3>
+        <p id="gp">Фокус на встречах, переписке, звонках, презентациях или общении с клиентами — в зависимости от вашей задачи.</p>
+        <div class="goal-tags" id="gchips"><span>лексика в контексте</span><span>практика</span><span>обратная связь</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1121,19 +1278,20 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 <script>
 (function(){
   var G={
-    work:["Говорить и понимать в рабочих ситуациях.","Фокус на встречах, переписке, звонках, презентациях или общении с клиентами — в зависимости от вашей задачи."],
-    move:["Справляться с языком после переезда.","Разбираем повседневные ситуации и лексику, которая нужна в новой стране — от бытового общения до формальных разговоров."],
-    trip:["Чувствовать себя свободнее в поездке.","Аэропорт, отель, кафе, дорога и неожиданные ситуации — практикуем диалоги, которые действительно могут понадобиться."],
-    talk:["Говорить увереннее и поддерживать разговор.","Расширяем словарь, работаем над произношением и учимся не зависать над каждой фразой."],
-    school:["Разобраться со школьной программой и закрыть пробелы.","Грамматика, лексика, контрольные и экзамены — с темпом и объёмом, который подходит ребёнку."]
+    work:["Говорить и понимать в рабочих ситуациях.","Фокус на встречах, переписке, звонках, презентациях или общении с клиентами — в зависимости от вашей задачи.",["лексика в контексте","практика","обратная связь"]],
+    move:["Справляться с языком после переезда.","Разбираем повседневные ситуации и лексику, которая нужна в новой стране — от бытового общения до формальных разговоров.",["повседневные ситуации","документы и сервисы","живая речь"]],
+    trip:["Чувствовать себя свободнее в поездке.","Аэропорт, отель, кафе, дорога и неожиданные ситуации — практикуем диалоги, которые действительно могут понадобиться.",["диалоги","понимание на слух","словарь"]],
+    talk:["Говорить увереннее и поддерживать разговор.","Расширяем словарь, работаем над произношением и учимся не зависать над каждой фразой.",["разговорная речь","произношение","уверенность"]],
+    school:["Разобраться со школьной программой и закрыть пробелы.","Грамматика, лексика, контрольные и экзамены — с темпом и объёмом, который подходит ребёнку.",["школьная программа","грамматика","подготовка"]]
   };
-  var tabs=document.querySelectorAll('.tab');
+  var tabs=document.querySelectorAll('.goal-tab');
   tabs.forEach(function(t){t.addEventListener('click',function(){
     tabs.forEach(function(x){x.setAttribute('aria-selected','false')});
     t.setAttribute('aria-selected','true');
     var d=G[t.dataset.g];
     document.getElementById('gt').textContent=d[0];
     document.getElementById('gp').textContent=d[1];
+    document.getElementById('gchips').innerHTML=d[2].map(function(x){return '<span>'+x+'</span>'}).join('');
   })});
 
   var goals=document.querySelectorAll('.goal');
