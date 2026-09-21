@@ -708,12 +708,99 @@ form .btn-p{width:100%;margin-top:24px}
   color:#806f61;
 }
 
-.details-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(30px,5vh,52px)}
-.detail{padding:22px 0;border-top:1px solid var(--line-2)}
-.detail strong{display:block;font-family:var(--serif);font-size:20px;font-weight:400;margin-bottom:9px}
-.detail p{color:var(--muted);font-size:14px;line-height:1.58;font-weight:300}
-.detail-cta{margin-top:30px}
-
+.details-section{
+  padding-top:clamp(82px,12vh,132px);
+  padding-bottom:clamp(82px,12vh,132px);
+}
+.details-layout{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(54px,9vw,126px);
+  align-items:start;
+}
+.details-index{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:20px;
+  font-family:var(--serif);
+  font-size:13px;
+  letter-spacing:.12em;
+  color:var(--clay);
+}
+.details-index::after{
+  content:"";
+  width:54px;
+  height:1px;
+  background:var(--line-2);
+}
+.price-lockup{
+  margin-top:14px;
+}
+.price-value{
+  display:block;
+  font-family:var(--serif);
+  font-size:clamp(76px,10vw,148px);
+  line-height:.82;
+  letter-spacing:-.055em;
+  color:#2b2723;
+}
+.price-unit{
+  display:block;
+  margin-top:18px;
+  font-family:var(--serif);
+  font-size:clamp(24px,2.2vw,34px);
+  line-height:1.1;
+  color:var(--forest);
+  font-style:italic;
+}
+.details-summary{
+  max-width:34ch;
+  margin-top:26px;
+  color:var(--muted);
+  font-size:clamp(15px,1.12vw,17px);
+  line-height:1.62;
+  font-weight:300;
+}
+.detail-cta{
+  margin-top:30px;
+}
+.details-list{
+  border-top:1px solid var(--line-2);
+}
+.detail{
+  display:grid;
+  grid-template-columns:minmax(150px,.72fr) minmax(0,1.28fr);
+  gap:24px;
+  padding:clamp(24px,3.2vw,36px) 0;
+  border-bottom:1px solid var(--line-2);
+}
+.detail strong{
+  display:block;
+  font-family:var(--serif);
+  font-size:clamp(22px,1.9vw,29px);
+  font-weight:400;
+  line-height:1.12;
+}
+.detail p{
+  max-width:40ch;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.62;
+  font-weight:300;
+}
+.details-note{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  margin-top:24px;
+  color:#806f61;
+  font-size:9.5px;
+  font-weight:500;
+  letter-spacing:.17em;
+  line-height:1.5;
+  text-transform:uppercase;
+}
 .faq{margin-top:clamp(28px,4vh,46px);max-width:760px}
 .q{border-top:1px solid var(--line)}
 .q:last-child{border-bottom:1px solid var(--line)}
@@ -786,7 +873,14 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   .review-row{grid-template-columns:34px minmax(0,1fr);gap:12px;padding:24px 0}
   .review-row blockquote{font-size:clamp(19px,5.8vw,24px)}
   .review-row-meta{grid-column:2;margin-top:2px;padding-top:0}
-  .trial,.details-grid{grid-template-columns:1fr}
+  .details-layout{grid-template-columns:1fr;gap:42px}
+  .price-value{font-size:clamp(78px,24vw,112px)}
+  .price-unit{margin-top:14px;font-size:27px}
+  .details-summary{margin-top:20px;font-size:14.5px}
+  .detail{grid-template-columns:1fr;gap:8px;padding:22px 0}
+  .detail strong{font-size:24px}
+  .details-note{align-items:flex-start;flex-direction:column;gap:6px}
+  .trial{grid-template-columns:1fr}
   .facts{flex-direction:column;gap:14px}
 }
 
@@ -1494,17 +1588,38 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   </div>
 </section>
 
-<section id="details">
-  <div class="shell">
-    <p class="kicker">Формат и стоимость</p>
-    <h2>1300 ₽ за 60 минут.</h2>
-    <p class="sub">Индивидуальные занятия онлайн. Английский или французский. Платформа — Zoom, Google Meet или Telegram по договорённости.</p>
-    <div class="details-grid">
-      <div class="detail"><strong>Домашние задания</strong><p>Даются регулярно, но объём зависит от цели и загруженности. Они не обязательны: важнее системность без перегруза.</p></div>
-      <div class="detail"><strong>Для младших детей</strong><p>При необходимости длительность занятия можно сократить с учётом возраста и концентрации внимания.</p></div>
-      <div class="detail"><strong>Фокус занятий</strong><p>Разговорная речь, словарь, грамматика и произношение — в зависимости от цели ученика.</p></div>
+<section id="details" class="details-section">
+  <div class="shell details-layout">
+    <div>
+      <p class="details-index" aria-hidden="true">06</p>
+      <p class="kicker">Формат и стоимость</p>
+
+      <div class="price-lockup">
+        <span class="price-value">1300 ₽</span>
+        <span class="price-unit">за 60 минут</span>
+      </div>
+
+      <p class="details-summary">Индивидуальные занятия онлайн. Английский или французский. Платформа — Zoom, Google Meet или Telegram по договорённости.</p>
+      <a class="btn btn-p detail-cta" href="#trial">Записаться на пробный урок</a>
     </div>
-    <a class="btn btn-p detail-cta" href="#trial">Записаться на пробный урок</a>
+
+    <div>
+      <div class="details-list">
+        <div class="detail">
+          <strong>Домашние задания</strong>
+          <p>Даются регулярно, но объём зависит от цели и загруженности. Они не обязательны: важнее системность без перегруза.</p>
+        </div>
+        <div class="detail">
+          <strong>Для младших детей</strong>
+          <p>При необходимости длительность занятия можно сократить с учётом возраста и концентрации внимания.</p>
+        </div>
+        <div class="detail">
+          <strong>Фокус занятий</strong>
+          <p>Разговорная речь, словарь, грамматика и произношение — в зависимости от цели ученика.</p>
+        </div>
+      </div>
+      <div class="details-note"><span>Online · 1:1</span><span>English · Français</span></div>
+    </div>
   </div>
 </section>
 
