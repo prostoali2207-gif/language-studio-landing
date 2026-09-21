@@ -199,6 +199,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   animation:hero-breathe 10s ease-in-out infinite alternate;
   will-change:transform,filter;
 }
+
 .hero-fx{
   position:absolute;
   inset:0;
@@ -289,31 +290,288 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   0%{transform:translate3d(-2%,1%,0) scaleX(.98);opacity:.42}
   100%{transform:translate3d(2%,-1%,0) scaleX(1.04);opacity:.68}
 }
+.hero-copy{
+  position:absolute;
+  inset:0;
+  z-index:7;
+  pointer-events:none;
+}
+.hero-shell{
+  position:relative;
+  height:100%;
+  padding-top:0;
+}
+.hero-topbar{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  padding:24px 0 0;
+  pointer-events:auto;
+}
+.hero-brand{
+  font-family:var(--serif);
+  font-size:clamp(15px,1.25vw,20px);
+  letter-spacing:.13em;
+  color:var(--ink);
+  white-space:nowrap;
+}
+.hero-brand span{
+  color:var(--muted);
+  letter-spacing:.05em;
+}
+.hero-nav{
+  display:flex;
+  align-items:center;
+  gap:clamp(18px,2.1vw,34px);
+  margin-left:auto;
+  font-family:var(--serif);
+  font-size:clamp(13px,1vw,16px);
+  color:#3f3a34;
+}
+.hero-nav a{
+  transition:opacity .2s ease;
+}
+.hero-nav a:hover{
+  opacity:.58;
+}
+.hero-nav-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:0 25px;
+  border-radius:999px;
+  background:#493526;
+  color:#fffaf1;
+}
+.hero-menu{
+  display:none;
+}
+.hero-main{
+  position:absolute;
+  left:0;
+  top:clamp(118px,14.2vw,198px);
+  width:min(49%,620px);
+  pointer-events:auto;
+}
+.hero-eyebrow{
+  margin:0 0 clamp(15px,1.55vw,22px);
+  font-family:var(--sans);
+  font-size:clamp(10px,.82vw,13px);
+  font-weight:500;
+  letter-spacing:.28em;
+  color:#806f61;
+  text-transform:uppercase;
+}
+.hero-eyebrow span{
+  margin:0 .58em;
+}
+.hero-title{
+  margin:0;
+  max-width:none;
+  width:max-content;
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(56px,5.35vw,82px);
+  line-height:.98;
+  letter-spacing:-.036em;
+  color:#211b17;
+  text-shadow:0 1px 0 rgba(255,255,255,.28);
+}
+.hero-title-line{
+  display:block;
+  white-space:nowrap;
+}
+.hero-title-line + .hero-title-line{
+  margin-top:.03em;
+}
+.hero-title i{
+  color:#2f4938;
+  font-style:italic;
+  font-weight:400;
+}
+.hero-lede{
+  margin-top:clamp(22px,2vw,30px);
+  max-width:34ch;
+  font-family:var(--serif);
+  font-size:clamp(16px,1.35vw,21px);
+  line-height:1.46;
+  color:#4f473f;
+}
+.hero-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:clamp(22px,2vw,30px);
+}
+.hero-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:0 28px;
+  border:1px solid rgba(73,53,38,.44);
+  border-radius:999px;
+  font-family:var(--serif);
+  font-size:clamp(14px,1.08vw,17px);
+  white-space:nowrap;
+  background:rgba(255,253,248,.28);
+  color:#3e3129;
+  transition:transform .2s ease,background .2s ease,border-color .2s ease;
+}
+.hero-action:hover{
+  transform:translateY(-1px);
+}
+.hero-action-primary{
+  background:#493526;
+  color:#fffaf1;
+  border-color:#493526;
+}
+.hero-action-primary .arr{
+  margin-left:12px;
+  font-family:var(--sans);
+}
+.hero-meta{
+  margin-top:clamp(20px,1.8vw,28px);
+  font-size:clamp(9px,.75vw,12px);
+  font-weight:500;
+  letter-spacing:.29em;
+  color:#806f61;
+  text-transform:uppercase;
+}
+.hero-signature{
+  position:absolute;
+  left:0;
+  bottom:clamp(26px,3vw,46px);
+  display:flex;
+  align-items:center;
+  gap:18px;
+  font-size:clamp(9px,.72vw,11px);
+  font-weight:500;
+  letter-spacing:.3em;
+  color:#877567;
+  text-transform:uppercase;
+}
+.hero-signature::before{
+  content:"";
+  width:34px;
+  height:1px;
+  background:#8b7768;
+}
+
 @media (hover:hover) and (pointer:fine) and (min-width:901px){
   .hero-art:hover .hero-media{transition-duration:140ms}
 }
 @media (max-width:900px){
   .hero-art{
-    height:clamp(460px,125vw,560px);
+    height:clamp(820px,214vw,960px);
     border-bottom:1px solid rgba(45,40,30,.10);
     background:#F3ECE4;
   }
+  .hero-shell{
+    width:min(calc(100% - 34px),var(--max));
+  }
+  .hero-topbar{
+    padding-top:18px;
+  }
+  .hero-brand{
+    font-size:14px;
+    letter-spacing:.11em;
+  }
+  .hero-brand span{
+    letter-spacing:.02em;
+  }
+  .hero-nav{
+    display:none;
+  }
+  .hero-menu{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-left:auto;
+    font-family:var(--serif);
+    font-size:15px;
+    color:#2f2925;
+    pointer-events:auto;
+  }
+  .hero-menu-lines{
+    display:inline-grid;
+    gap:4px;
+  }
+  .hero-menu-lines i{
+    display:block;
+    width:25px;
+    height:1.5px;
+    background:#2f2925;
+  }
+  .hero-main{
+    top:88px;
+    width:100%;
+  }
+  .hero-eyebrow{
+    margin-bottom:14px;
+    font-size:9px;
+    letter-spacing:.25em;
+  }
+  .hero-eyebrow span{
+    margin:0 .42em;
+  }
+  .hero-title{
+    width:100%;
+    font-size:clamp(39px,10.7vw,48px);
+    line-height:.98;
+    letter-spacing:-.04em;
+  }
+  .hero-title-line{
+    white-space:nowrap;
+  }
+  .hero-lede{
+    margin-top:18px;
+    max-width:31ch;
+    font-size:clamp(15px,4.05vw,17px);
+    line-height:1.42;
+  }
+  .hero-actions{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:9px;
+    width:min(100%,330px);
+    margin-top:20px;
+  }
+  .hero-action{
+    min-height:49px;
+    width:100%;
+    padding:0 18px;
+    font-size:15px;
+  }
+  .hero-meta{
+    margin-top:17px;
+    font-size:8.5px;
+    letter-spacing:.24em;
+  }
+  .hero-signature{
+    bottom:20px;
+    gap:12px;
+    font-size:8px;
+    letter-spacing:.24em;
+  }
+  .hero-signature::before{
+    width:25px;
+  }
   .hero-media{
     position:absolute;
-    inset:-18px 0;
+    inset:0;
     overflow:hidden;
-    transform:translate3d(0,var(--mobile-scroll-y),0) scale(1.045);
+    transform:translate3d(0,var(--mobile-scroll-y),0) scale(1.04);
     transition:none;
   }
   .hero-media img{
     position:absolute;
-    width:163.5vw;
+    width:176vw;
     max-width:none;
     height:auto;
-    right:-2vw;
-    bottom:0;
-    -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 9%,#000 18%,#000 100%);
-    mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.35) 9%,#000 18%,#000 100%);
+    right:-10vw;
+    bottom:58px;
     animation-duration:13s;
     transform-origin:76% 62%;
   }
@@ -339,6 +597,47 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 <body>
 
 <div class="hero-art" id="top">
+  <div class="hero-copy">
+    <div class="shell hero-shell">
+      <header class="hero-topbar">
+        <a class="hero-brand" href="#top">ZAYNAB <span>/ Languages</span></a>
+
+        <nav class="hero-nav" aria-label="Основная навигация">
+          <a href="#method">Как учимся</a>
+          <a href="#languages">Языки</a>
+          <a href="#goals">Под вашу цель</a>
+          <a href="#faq">FAQ</a>
+          <a class="hero-nav-cta" href="#trial">Записаться</a>
+        </nav>
+
+        <a class="hero-menu" href="#method" aria-label="Перейти к разделам">
+          <span>Меню</span>
+          <span class="hero-menu-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+        </a>
+      </header>
+
+      <div class="hero-main">
+        <p class="hero-eyebrow">English <span>•</span> French <span>•</span> Russian</p>
+
+        <h1 class="hero-title">
+          <span class="hero-title-line">Не учить язык.</span>
+          <span class="hero-title-line">А начать <i>говорить.</i></span>
+        </h1>
+
+        <p class="hero-lede">Индивидуальные занятия по английскому, французскому и русскому — под работу, переезд, общение и реальные жизненные задачи.</p>
+
+        <div class="hero-actions">
+          <a class="hero-action hero-action-primary" href="#trial">Записаться на пробный урок <span class="arr">→</span></a>
+          <a class="hero-action" href="#method">Как проходит обучение</a>
+        </div>
+
+        <p class="hero-meta">Online <span>•</span> 1:1 <span>•</span> для взрослых</p>
+      </div>
+
+      <div class="hero-signature">Слова открывают миры</div>
+    </div>
+  </div>
+
   <picture class="hero-media" aria-hidden="true">
     <source media="(max-width: 900px)" srcset="/hero-desktop.png">
     <img src="/hero-desktop.png" alt="" decoding="async" fetchpriority="high">
