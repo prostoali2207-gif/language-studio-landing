@@ -101,11 +101,104 @@ section{position:relative;z-index:2;padding:clamp(56px,10vh,110px) 0;border-top:
 h2{font-size:clamp(26px,3.4vw,44px);line-height:1.15;max-width:20ch}
 .sub{margin-top:16px;color:var(--muted);max-width:52ch;line-height:1.6;font-weight:300}
 
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:clamp(34px,5vh,58px)}
-.step{padding-top:18px;border-top:1px solid var(--line-2)}
-.step .n{font-family:var(--serif);font-size:13px;color:var(--clay);letter-spacing:.1em}
-.step h3{font-size:19px;margin:8px 0 8px}
-.step p{font-size:14px;line-height:1.55;color:var(--muted);font-weight:300}
+.method-section{
+  border-top:0;
+  padding-top:clamp(72px,10vh,118px);
+  padding-bottom:clamp(72px,11vh,128px);
+  overflow:hidden;
+}
+.method-layout{
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:clamp(52px,8vw,112px);
+  align-items:start;
+}
+.method-intro{
+  position:sticky;
+  top:96px;
+  align-self:start;
+}
+.method-index{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:20px;
+  font-family:var(--serif);
+  font-size:13px;
+  letter-spacing:.12em;
+  color:var(--clay);
+}
+.method-index::after{
+  content:"";
+  width:54px;
+  height:1px;
+  background:var(--line-2);
+}
+.method-title{
+  max-width:11.5ch;
+  font-size:clamp(38px,4.3vw,62px);
+  line-height:1.04;
+  letter-spacing:-.025em;
+}
+.method-sub{
+  max-width:35ch;
+  margin-top:24px;
+  font-size:clamp(15px,1.2vw,18px);
+  line-height:1.62;
+  color:var(--muted);
+  font-weight:300;
+}
+.method-meta{
+  margin-top:30px;
+  padding-top:17px;
+  border-top:1px solid var(--line);
+  max-width:31ch;
+  font-size:10px;
+  line-height:1.5;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#806f61;
+}
+.method-steps{
+  border-top:1px solid var(--line-2);
+}
+.method-step{
+  display:grid;
+  grid-template-columns:58px minmax(0,1fr);
+  gap:18px;
+  padding:clamp(24px,3.2vw,38px) 0;
+  border-bottom:1px solid var(--line-2);
+}
+.method-step .n{
+  padding-top:4px;
+  font-family:var(--serif);
+  font-size:13px;
+  letter-spacing:.1em;
+  color:var(--clay);
+}
+.method-step h3{
+  font-size:clamp(23px,2vw,31px);
+  line-height:1.12;
+  letter-spacing:-.015em;
+}
+.method-step p{
+  max-width:46ch;
+  margin-top:10px;
+  font-size:clamp(14px,1.1vw,16px);
+  line-height:1.62;
+  color:var(--muted);
+  font-weight:300;
+}
+@media (hover:hover) and (pointer:fine){
+  .method-step{
+    transition:padding-left .28s ease,padding-right .28s ease,background .28s ease;
+  }
+  .method-step:hover{
+    padding-left:14px;
+    padding-right:14px;
+    background:rgba(255,253,248,.30);
+  }
+}
 
 .langs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:clamp(30px,5vh,52px)}
 .lang{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px}
@@ -178,7 +271,15 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   .cta{flex-direction:column;align-items:stretch}
   .btn{width:100%}
   .cue{display:none}
-  .steps,.langs,.trial,.proof-grid,.reviews,.details-grid{grid-template-columns:1fr}
+  .method-layout{grid-template-columns:1fr;gap:38px}
+  .method-intro{position:static}
+  .method-title{max-width:13ch;font-size:clamp(34px,9vw,44px)}
+  .method-sub{max-width:36ch;margin-top:18px}
+  .method-meta{margin-top:24px}
+  .method-step{grid-template-columns:40px minmax(0,1fr);gap:12px;padding:22px 0}
+  .method-step h3{font-size:clamp(22px,6.5vw,27px)}
+  .method-step p{margin-top:8px;font-size:14.5px}
+  .langs,.trial,.proof-grid,.reviews,.details-grid{grid-template-columns:1fr}
   .facts{flex-direction:column;gap:14px}
 }
 
@@ -705,16 +806,33 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   <div class="hero-fx hero-fx-dust" aria-hidden="true"></div>
 </div>
 
-<section id="method">
-  <div class="shell">
-    <p class="kicker">Как проходит обучение</p>
-    <h2>Сначала понимаем, зачем вам язык. Потом строим занятия вокруг этого.</h2>
-    <p class="sub">Разговорная практика, грамматика, словарь и произношение работают вместе — в тех ситуациях, для которых вам нужен язык.</p>
-    <div class="steps">
-      <div class="step"><p class="n">01</p><h3>Определяем точку старта</h3><p>Смотрим текущий уровень, цель и ситуации, в которых язык нужен в первую очередь.</p></div>
-      <div class="step"><p class="n">02</p><h3>Учимся использовать язык</h3><p>Говорим, слушаем и разбираем лексику и грамматику сразу в контексте.</p></div>
-      <div class="step"><p class="n">03</p><h3>Разбираем то, что мешает</h3><p>Ошибки не просто исправляем — разбираем понятно и возвращаем в практику.</p></div>
-      <div class="step"><p class="n">04</p><h3>Закрепляем без перегруза</h3><p>Домашние задания даются регулярно, но объём подстраивается под цель и вашу загруженность.</p></div>
+<section id="method" class="method-section">
+  <div class="shell method-layout">
+    <div class="method-intro">
+      <p class="method-index" aria-hidden="true">01</p>
+      <p class="kicker">Как проходит обучение</p>
+      <h2 class="method-title">Сначала понимаем, зачем вам язык. Потом строим занятия вокруг этого.</h2>
+      <p class="method-sub">Разговорная практика, грамматика, словарь и произношение работают вместе — в тех ситуациях, для которых вам нужен язык.</p>
+      <p class="method-meta">English · Français · Online 1:1</p>
+    </div>
+
+    <div class="method-steps">
+      <div class="method-step">
+        <p class="n">01</p>
+        <div><h3>Определяем точку старта</h3><p>Смотрим текущий уровень, цель и ситуации, в которых язык нужен в первую очередь.</p></div>
+      </div>
+      <div class="method-step">
+        <p class="n">02</p>
+        <div><h3>Учимся использовать язык</h3><p>Говорим, слушаем и разбираем лексику и грамматику сразу в контексте.</p></div>
+      </div>
+      <div class="method-step">
+        <p class="n">03</p>
+        <div><h3>Разбираем то, что мешает</h3><p>Ошибки не просто исправляем — разбираем понятно и возвращаем в практику.</p></div>
+      </div>
+      <div class="method-step">
+        <p class="n">04</p>
+        <div><h3>Закрепляем без перегруза</h3><p>Домашние задания даются регулярно, но объём подстраивается под цель и вашу загруженность.</p></div>
+      </div>
     </div>
   </div>
 </section>
