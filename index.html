@@ -136,6 +136,23 @@ select{width:100%;padding:13px 14px;border:1px solid var(--line-2);border-radius
 form .btn-p{width:100%;margin-top:24px}
 .hint{margin-top:12px;font-size:12.5px;color:var(--muted);line-height:1.5}
 
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(30px,5vh,52px)}
+.proof{padding:24px 0;border-top:1px solid var(--line-2)}
+.proof strong{display:block;font-family:var(--serif);font-size:clamp(25px,2.4vw,34px);font-weight:400;margin-bottom:9px}
+.proof span{display:block;color:var(--muted);font-size:14px;line-height:1.55;font-weight:300;max-width:28ch}
+
+.reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:clamp(30px,5vh,52px)}
+.review{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:clamp(22px,2.6vw,30px)}
+.review .stars{font-size:15px;letter-spacing:.12em;color:var(--clay);margin-bottom:14px}
+.review blockquote{margin:0;font-family:var(--serif);font-size:clamp(18px,1.6vw,23px);line-height:1.42;color:#302a25}
+.review cite{display:block;margin-top:18px;font-style:normal;color:var(--muted);font-size:13px}
+
+.details-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(30px,5vh,52px)}
+.detail{padding:22px 0;border-top:1px solid var(--line-2)}
+.detail strong{display:block;font-family:var(--serif);font-size:20px;font-weight:400;margin-bottom:9px}
+.detail p{color:var(--muted);font-size:14px;line-height:1.58;font-weight:300}
+.detail-cta{margin-top:30px}
+
 .faq{margin-top:clamp(28px,4vh,46px);max-width:760px}
 .q{border-top:1px solid var(--line)}
 .q:last-child{border-bottom:1px solid var(--line)}
@@ -161,7 +178,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   .cta{flex-direction:column;align-items:stretch}
   .btn{width:100%}
   .cue{display:none}
-  .steps,.langs,.trial{grid-template-columns:1fr}
+  .steps,.langs,.trial,.proof-grid,.reviews,.details-grid{grid-template-columns:1fr}
   .facts{flex-direction:column;gap:14px}
 }
 
@@ -642,8 +659,9 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 
         <nav class="hero-nav" aria-label="Основная навигация">
           <a href="#method">Как учимся</a>
-          <a href="#languages">Языки</a>
-          <a href="#goals">Под вашу цель</a>
+          <a href="#languages">Для кого</a>
+          <a href="#about">О Зайнаб</a>
+          <a href="#reviews">Отзывы</a>
           <a href="#faq">FAQ</a>
           <a class="hero-nav-cta" href="#trial">Записаться</a>
         </nav>
@@ -669,7 +687,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
           <a class="hero-action" href="#method">Как проходит обучение</a>
         </div>
 
-        <p class="hero-meta">Online <span>•</span> 1:1 <span>•</span> для взрослых</p>
+        <p class="hero-meta">Online <span>•</span> 1:1 <span>•</span> взрослым и детям</p>
       </div>
 
       <div class="hero-signature">Слова открывают миры</div>
@@ -689,26 +707,26 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 
 <section id="method">
   <div class="shell">
-    <p class="kicker">Как учимся</p>
-    <h2>От вашей задачи — к тому, что нужно уметь делать на языке.</h2>
-    <p class="sub">Важно не сколько тем вы прошли, а что уже можете понять, сказать или сделать на языке.</p>
+    <p class="kicker">Как проходит обучение</p>
+    <h2>Сначала понимаем, зачем вам язык. Потом строим занятия вокруг этого.</h2>
+    <p class="sub">Разговорная практика, грамматика, словарь и произношение работают вместе — в тех ситуациях, для которых вам нужен язык.</p>
     <div class="steps">
-      <div class="step"><p class="n">01</p><h3>Пробный урок</h3><p>Определяем текущий уровень, цель и ситуации, в которых вам нужен язык.</p></div>
-      <div class="step"><p class="n">02</p><h3>Приоритеты</h3><p>Выбираем темы и навыки, которые важнее всего для вашей задачи.</p></div>
-      <div class="step"><p class="n">03</p><h3>Практика</h3><p>Новое сразу используем в ситуациях, ради которых вы учите язык.</p></div>
-      <div class="step"><p class="n">04</p><h3>Коррекция</h3><p>Смотрим, что получается, где остаются трудности, и определяем следующий шаг.</p></div>
+      <div class="step"><p class="n">01</p><h3>Определяем точку старта</h3><p>Смотрим текущий уровень, цель и ситуации, в которых язык нужен в первую очередь.</p></div>
+      <div class="step"><p class="n">02</p><h3>Учимся использовать язык</h3><p>Говорим, слушаем и разбираем лексику и грамматику сразу в контексте.</p></div>
+      <div class="step"><p class="n">03</p><h3>Разбираем то, что мешает</h3><p>Ошибки не просто исправляем — разбираем понятно и возвращаем в практику.</p></div>
+      <div class="step"><p class="n">04</p><h3>Закрепляем без перегруза</h3><p>Домашние задания даются регулярно, но объём подстраивается под цель и вашу загруженность.</p></div>
     </div>
   </div>
 </section>
 
 <section id="languages">
   <div class="shell">
-    <p class="kicker">Языки</p>
-    <h2>Английский или французский — под вашу задачу.</h2>
-    <p class="sub">Выберите язык, с которым хотите работать.</p>
+    <p class="kicker">Для кого</p>
+    <h2>Взрослым и детям — с разными задачами.</h2>
+    <p class="sub">Формат один на один позволяет не вести всех по одной программе, а сосредоточиться на том, что важно конкретному ученику.</p>
     <div class="langs">
-      <div class="lang"><p class="code">EN</p><h3>English</h3><p>Работа, переезд, поездки, свободное общение.</p></div>
-      <div class="lang"><p class="code">FR</p><h3>Français</h3><p>С нуля или продолжение — до уверенной речи.</p></div>
+      <div class="lang"><p class="code">ADULTS</p><h3>Взрослым</h3><p>Работа, переезд, поездки, разговорная речь, словарный запас, грамматика, произношение и уверенность в общении.</p></div>
+      <div class="lang"><p class="code">KIDS</p><h3>Детям</h3><p>Школьная программа, пробелы в знаниях, контрольные и экзамены, грамматика, словарь и разговорная практика.</p></div>
     </div>
   </div>
 </section>
@@ -716,48 +734,93 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 <section id="goals">
   <div class="shell">
     <p class="kicker">Под вашу цель</p>
-    <h2>Для чего вам нужен язык?</h2>
-    <p class="sub">Выберите ближайшую задачу — она определяет, на чём будет фокус обучения.</p>
+    <h2>Что должно стать легче после занятий?</h2>
+    <p class="sub">Выберите ближайшую задачу — она задаёт фокус обучения и помогает не тратить время на лишнее.</p>
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" aria-selected="true" data-g="work">Работа</button>
       <button class="tab" role="tab" aria-selected="false" data-g="move">Переезд</button>
       <button class="tab" role="tab" aria-selected="false" data-g="trip">Поездки</button>
       <button class="tab" role="tab" aria-selected="false" data-g="talk">Общение</button>
+      <button class="tab" role="tab" aria-selected="false" data-g="school">Школа</button>
     </div>
     <div class="panel">
       <h3 id="gt">Говорить и понимать в рабочих ситуациях.</h3>
       <p id="gp">Фокус на встречах, переписке, звонках, презентациях или общении с клиентами — в зависимости от вашей задачи.</p>
-      <div class="chips"><span>лексика в контексте</span><span>сценарии</span><span>обратная связь</span></div>
+      <div class="chips"><span>лексика в контексте</span><span>практика</span><span>обратная связь</span></div>
     </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="shell">
+    <p class="kicker">Преподаватель</p>
+    <h2>Зайнаб — лингвист-переводчик и преподаватель с опытом более 6 лет.</h2>
+    <p class="sub">Высшее образование МПГУ. Преподаёт английский и французский взрослым и детям, один на один онлайн.</p>
+    <div class="proof-grid">
+      <div class="proof"><strong>МПГУ</strong><span>высшее образование по специальности «Лингвист-переводчик»</span></div>
+      <div class="proof"><strong>6+ лет</strong><span>опыта преподавания английского и французского</span></div>
+      <div class="proof"><strong>1:1 онлайн</strong><span>Zoom, Google Meet или Telegram — по договорённости</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="shell">
+    <p class="kicker">Отзывы</p>
+    <h2>Что отмечают ученики и родители.</h2>
+    <p class="sub">Ниже — фрагменты реальных отзывов после занятий.</p>
+    <div class="reviews">
+      <article class="review"><div class="stars" aria-label="5 из 5">★★★★★</div><blockquote>«Всё объясняла чётко и понятно. Подробно отвечала на все вопросы, продолжу занятия дальше.»</blockquote><cite>Фируза · апрель 2025</cite></article>
+      <article class="review"><div class="stars" aria-label="5 из 5">★★★★★</div><blockquote>«Очень хороший репетитор. Знает своё дело. Находит подход к любому ребёнку.»</blockquote><cite>Отзыв родителя · апрель 2025</cite></article>
+      <article class="review"><div class="stars" aria-label="5 из 5">★★★★★</div><blockquote>«Детям понравилось занятие. Очень довольны. Рекомендуем.»</blockquote><cite>Сара · апрель 2025</cite></article>
+      <article class="review"><div class="stars" aria-label="5 из 5">★★★★★</div><blockquote>«Всё понятно и интересно объясняет. Уже заметила улучшения.»</blockquote><cite>Отзыв ученицы</cite></article>
+    </div>
+  </div>
+</section>
+
+<section id="details">
+  <div class="shell">
+    <p class="kicker">Формат и стоимость</p>
+    <h2>1300 ₽ за 60 минут.</h2>
+    <p class="sub">Индивидуальные занятия онлайн. Английский или французский. Платформа — Zoom, Google Meet или Telegram по договорённости.</p>
+    <div class="details-grid">
+      <div class="detail"><strong>Домашние задания</strong><p>Даются регулярно, но объём зависит от цели и загруженности. Они не обязательны: важнее системность без перегруза.</p></div>
+      <div class="detail"><strong>Для младших детей</strong><p>При необходимости длительность занятия можно сократить с учётом возраста и концентрации внимания.</p></div>
+      <div class="detail"><strong>Фокус занятий</strong><p>Разговорная речь, словарь, грамматика и произношение — в зависимости от цели ученика.</p></div>
+    </div>
+    <a class="btn btn-p detail-cta" href="#trial">Записаться на пробный урок</a>
   </div>
 </section>
 
 <section id="trial">
   <div class="shell trial">
     <div>
-      <p class="kicker">Пробный урок</p>
-      <h2>Начнём с вашей реальной задачи.</h2>
-      <p class="sub">На пробном уроке определим текущий уровень, разберём цель и поймём, какие навыки сейчас важнее всего.</p>
+      <p class="kicker">Первый шаг</p>
+      <h2>Сначала разберём, что именно вам нужно.</h2>
+      <p class="sub">На пробном уроке определим текущий уровень, цель и ближайший приоритет. После этого будет понятно, на чём строить занятия.</p>
       <ul class="checks">
-        <li><b>01</b>что уже получается</li>
-        <li><b>02</b>где язык нужен в первую очередь</li>
-        <li><b>03</b>что поставить в приоритет</li>
+        <li><b>01</b>определим текущий уровень</li>
+        <li><b>02</b>разберём вашу цель</li>
+        <li><b>03</b>выберем, с чего начать</li>
       </ul>
     </div>
     <form id="f">
       <h3>Записаться на пробный урок</h3>
+      <label for="who">Кому нужны занятия</label>
+      <select id="who"><option>Мне</option><option>Ребёнку</option></select>
       <label for="lang">Выберите язык</label>
       <select id="lang"><option>Английский</option><option>Французский</option></select>
-      <label for="lvl">Ваш уровень</label>
+      <label for="lvl">Текущий уровень</label>
       <select id="lvl"><option>Не знаю</option><option>С нуля</option><option>Начальный (A1–A2)</option><option>Средний (B1–B2)</option><option>Продвинутый (C1–C2)</option></select>
-      <label>Задача</label>
+      <label>Главная задача</label>
       <div class="goals">
         <button type="button" class="goal" aria-pressed="true">Работа</button>
         <button type="button" class="goal" aria-pressed="false">Переезд</button>
         <button type="button" class="goal" aria-pressed="false">Поездки</button>
         <button type="button" class="goal" aria-pressed="false">Общение</button>
+        <button type="button" class="goal" aria-pressed="false">Школа / экзамены</button>
       </div>
-      <button type="button" class="btn btn-p" id="send">Продолжить в Telegram</button>
+      <button type="button" class="btn btn-p" id="send">Записаться через Telegram</button>
       <p class="hint">Откроется Telegram с готовой заявкой для @inspo25. Останется нажать «Отправить».</p>
     </form>
   </div>
@@ -766,13 +829,14 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 <section id="faq">
   <div class="shell">
     <p class="kicker">FAQ</p>
-    <h2>Перед пробным уроком</h2>
+    <h2>Перед первым занятием</h2>
     <div class="faq">
-      <div class="q"><button>Что будет на пробном уроке?<span class="mark">+</span></button><div class="a">Определим текущий уровень, разберём вашу цель и поймём, на чём стоит сосредоточиться в первую очередь.</div></div>
-      <div class="q"><button>Нужно ли заранее знать свой уровень?<span class="mark">+</span></button><div class="a">Нет. Текущий уровень определим на пробном уроке.</div></div>
-      <div class="q"><button>Как строятся занятия после пробного урока?<span class="mark">+</span></button><div class="a">От вашей цели: определяем приоритеты, практикуем нужные навыки и корректируем следующий шаг по ходу обучения.</div></div>
-      <div class="q"><button>Какие языки можно изучать?<span class="mark">+</span></button><div class="a">Английский и французский.</div></div>
-      <div class="q"><button>Где проходят занятия?<span class="mark">+</span></button><div class="a">Онлайн, 1-на-1 с преподавателем.</div></div>
+      <div class="q"><button>Сколько стоит занятие?<span class="mark">+</span></button><div class="a">1300 ₽ за стандартное индивидуальное занятие продолжительностью 60 минут.</div></div>
+      <div class="q"><button>Где проходят занятия?<span class="mark">+</span></button><div class="a">Онлайн — в Zoom, Google Meet или Telegram. Платформу выбираем по договорённости.</div></div>
+      <div class="q"><button>Обязательны ли домашние задания?<span class="mark">+</span></button><div class="a">Нет. Задания даются регулярно, но их объём зависит от цели и загруженности ученика. Важнее заниматься без перегруза и сохранять системность.</div></div>
+      <div class="q"><button>Можно ли заниматься ребёнку?<span class="mark">+</span></button><div class="a">Да. Зайнаб работает с детьми: помогает закрывать пробелы, разбираться со школьной программой, готовиться к контрольным и экзаменам. Для младших детей длительность урока при необходимости можно сократить.</div></div>
+      <div class="q"><button>Нужно ли заранее знать свой уровень?<span class="mark">+</span></button><div class="a">Нет. Текущий уровень определим на пробном уроке и от него выберем первый приоритет.</div></div>
+      <div class="q"><button>Что будет на пробном уроке?<span class="mark">+</span></button><div class="a">Определим текущий уровень, разберём цель и поймём, на чём стоит сосредоточиться в первую очередь.</div></div>
     </div>
   </div>
 </section>
@@ -780,7 +844,7 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 <footer>
   <div class="shell f">
     <span class="brand">Zaynab <span>/ Languages</span></span>
-    <span>English · Français · индивидуальные занятия онлайн 1-на-1</span>
+    <span>English · Français · взрослым и детям · онлайн 1-на-1</span>
   </div>
 </footer>
 
@@ -788,9 +852,10 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
 (function(){
   var G={
     work:["Говорить и понимать в рабочих ситуациях.","Фокус на встречах, переписке, звонках, презентациях или общении с клиентами — в зависимости от вашей задачи."],
-    move:["Справляться с бытом и документами на новом месте.","Банк, аренда, поликлиника, школа, госуслуги — разбираем ситуации, которые ждут вас сразу после переезда."],
-    trip:["Чувствовать себя свободно в поездке.","Аэропорт, отель, кафе, дорога и внезапные ситуации — короткие диалоги, которые нужны чаще всего."],
-    talk:["Поддерживать живой разговор.","Учимся говорить о себе, слушать собеседника и продолжать беседу, не подбирая слова по полминуты."]
+    move:["Справляться с языком после переезда.","Разбираем повседневные ситуации и лексику, которая нужна в новой стране — от бытового общения до формальных разговоров."],
+    trip:["Чувствовать себя свободнее в поездке.","Аэропорт, отель, кафе, дорога и неожиданные ситуации — практикуем диалоги, которые действительно могут понадобиться."],
+    talk:["Говорить увереннее и поддерживать разговор.","Расширяем словарь, работаем над произношением и учимся не зависать над каждой фразой."],
+    school:["Разобраться со школьной программой и закрыть пробелы.","Грамматика, лексика, контрольные и экзамены — с темпом и объёмом, который подходит ребёнку."]
   };
   var tabs=document.querySelectorAll('.tab');
   tabs.forEach(function(t){t.addEventListener('click',function(){
@@ -808,10 +873,11 @@ footer .f{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;ali
   })});
 
   document.getElementById('send').addEventListener('click',function(){
-    var lang=document.getElementById('lang').value,
+    var who=document.getElementById('who').value,
+        lang=document.getElementById('lang').value,
         lvl=document.getElementById('lvl').value,
         goal=document.querySelector('.goal[aria-pressed="true"]').textContent,
-        msg='Здравствуйте! Хочу записаться на пробный урок.\nЯзык: '+lang+'\nУровень: '+lvl+'\nЗадача: '+goal;
+        msg='Здравствуйте! Хочу записаться на пробный урок.\nКому: '+who+'\nЯзык: '+lang+'\nУровень: '+lvl+'\nЗадача: '+goal;
     window.open('https://t.me/inspo25?text='+encodeURIComponent(msg),'_blank','noopener');
   });
 
